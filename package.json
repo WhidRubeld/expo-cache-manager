@@ -1,6 +1,6 @@
 {
   "name": "expo-file-system-manager",
-  "version": "15.1.1",
+  "version": "1.0.0",
   "description": "",
   "author": "WhidRubeld <whidrubeld@gmail.com>",
   "license": "MIT",
@@ -27,9 +27,9 @@
   },
   "homepage": "https://github.com/WhidRubeld/expo-file-system-manager#readme",
   "peerDependencies": {
-    "expo-file-system": "^15.1.1",
-    "react": "^18.1.0",
-    "react-native": "^0.70.5"
+    "expo-file-system": "*",
+    "react": "*",
+    "react-native": "*"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

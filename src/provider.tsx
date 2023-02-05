@@ -59,7 +59,7 @@ export const FileSystemManagerContext =
   })
 
 export type FileSystemManagerProviderProps = {
-  autoInit: boolean
+  autoInit?: boolean
   children: ReactNode
 }
 

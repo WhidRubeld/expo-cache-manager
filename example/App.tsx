@@ -1,34 +1,35 @@
 import { StatusBar } from 'expo-status-bar'
-import { ReactNode } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { useEffect, useState } from 'react'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import Page from './Page'
 
-import { FileSystemManagerProvider } from 'expo-file-system-manager'
-
-const Page = () => {
-  return (
-    <View>
-      <Text>Hello</Text>
-    </View>
-  )
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
+import { cacheManager } from './utils'
 
 export default function App() {
-  console.log(FileSystemManagerProvider)
+  const [ready, setReady] = useState(false)
+
+  const init = async () => {
+    try {
+      await cacheManager.initAsync()
+      await cacheManager.resetAsync()
+      setReady(true)
+    } catch (e) {
+      console.warn('init error', e)
+    }
+  }
+
+  useEffect(() => {
+    init()
+  }, [])
+
+  if (!ready) return null
+
   return (
     <>
       <StatusBar style='auto' />
-      <FileSystemManagerProvider>
+      <SafeAreaProvider>
         <Page />
-      </FileSystemManagerProvider>
+      </SafeAreaProvider>
     </>
   )
 }

@@ -1,7 +1,12 @@
-import { createUploadTask, moveAsync, UploadTask } from 'expo-file-system'
 import {
-  FileSystemUploadOptions,
-  UploadProgressData
+  createDownloadResumable,
+  DownloadResumable,
+  moveAsync
+} from 'expo-file-system'
+import {
+  DownloadPauseState,
+  DownloadProgressData,
+  FileSystemUploadOptions
 } from 'expo-file-system/build/FileSystem.types'
 import { Utils } from './Utils.class'
 
@@ -21,9 +26,10 @@ export class CacheEntry {
 
   private _folder: string
   private _tmpFolder: string
-  private _task?: UploadTask
+  private _task?: DownloadResumable
   private _path: string | null
-  private _progress?: UploadProgressData
+  private _tmpPath?: string
+  private _progress?: DownloadProgressData
   private _error?: any
 
   constructor({ uri, folder, tmpFolder, completed }: CacheEntryOptions) {
@@ -37,21 +43,19 @@ export class CacheEntry {
     if (completed) this._path = Utils.uri2path(uri, this._folder)
   }
 
-  private onUpdateTaskProgress(data: UploadProgressData) {
+  private onUpdateProgress(data: DownloadProgressData) {
     this._progress = data
   }
 
-  private onCompleteTaskAsync(tmpPath: string) {
+  private onCompleteAsync() {
     return new Promise<string>(async (resolve, reject) => {
+      if (!this._tmpPath) return reject(new Error('Tmp path not found'))
       try {
         const path = Utils.uri2path(this.uri, this._folder)
-        await moveAsync({ from: tmpPath, to: path })
+        await moveAsync({ from: this._tmpPath, to: path })
 
         this._path = path
-        this._task = undefined
-        this._progress = undefined
-        this._error = undefined
-
+        this.resetTask()
         resolve(path)
       } catch (e) {
         console.warn(e)
@@ -60,11 +64,17 @@ export class CacheEntry {
     })
   }
 
+  private resetTask() {
+    delete this._tmpPath
+    delete this._task
+    delete this._progress
+    delete this._error
+  }
+
   private onTaskError(e: any) {
     console.warn(e)
 
-    this._task = undefined
-    this._progress = undefined
+    this.resetTask()
     this._error = e
 
     Utils.uri2path(this.uri, this._folder)
@@ -72,42 +82,75 @@ export class CacheEntry {
 
   public downloadAsync(options: CacheEntryDownloadOptions) {
     return new Promise<string>((resolve, reject) => {
-      if (this._task) return
+      if (this._task) return reject(new Error('Task not found'))
 
-      const tmpPath = Utils.uri2tmpPath(this.uri, this._tmpFolder)
-      console.log('tmp path', tmpPath)
-      this._error = undefined
-
-      this._task = createUploadTask(this.uri, tmpPath, options, (data) => {
-        console.log('progress', data)
-        if (options.onProgress) {
-          options.onProgress(
-            Math.ceil(
-              (data.totalByteSent / data.totalBytesExpectedToSend) * 100
+      this._tmpPath = Utils.uri2tmpPath(this.uri, this._tmpFolder)
+      this._task = createDownloadResumable(
+        this.uri,
+        this._tmpPath,
+        options,
+        (data) => {
+          if (options.onProgress) {
+            options.onProgress(
+              Math.ceil(
+                (data.totalBytesWritten / data.totalBytesExpectedToWrite) * 100
+              )
             )
-          )
+          }
+          this.onUpdateProgress(data)
         }
-        this.onUpdateTaskProgress(data)
-      })
+      )
 
       this._task
-        .uploadAsync()
-        .then(() => this.onCompleteTaskAsync(tmpPath))
+        .downloadAsync()
+        .then(this.onCompleteAsync)
         .then((v) => resolve(v))
         .catch((e) => {
-          console.log('teeest', e)
           this.onTaskError(e)
-          reject()
+          reject(e)
         })
+    })
+  }
+
+  public resumeAsync() {
+    return new Promise<string>((resolve, reject) => {
+      if (!this._task) return reject(new Error('Task not found'))
+
+      this._task
+        .resumeAsync()
+        .then(this.onCompleteAsync)
+        .then((v) => resolve(v))
+        .catch((e) => {
+          this.onTaskError(e)
+          reject(e)
+        })
+    })
+  }
+
+  public pauseAsync() {
+    return new Promise<DownloadPauseState>((resolve, reject) => {
+      if (!this._task) return reject(new Error('Task not found'))
+
+      this._task.pauseAsync().then(resolve).catch(reject)
+    })
+  }
+
+  public cancelAsync() {
+    return new Promise<void>((resolve, reject) => {
+      if (!this._task) return reject(new Error('Task not found'))
+
+      this._task
+        .cancelAsync()
+        .then(() => {
+          this.resetTask()
+          resolve()
+        })
+        .catch(reject)
     })
   }
 
   get path() {
     return this._path
-  }
-
-  get task() {
-    return this._task
   }
 
   get folder() {

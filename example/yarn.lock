@@ -3055,7 +3055,7 @@ expo-error-recovery@~4.0.1:
   resolved "https://registry.yarnpkg.com/expo-error-recovery/-/expo-error-recovery-4.0.1.tgz#3e3333e134c992c234539d3773fe78915c883755"
   integrity sha512-wceptnRX+N3qCSVTNbIchUFu3GmY30onRH5L66OF8HMLpAIQfrZMLxJfz7SAMJTcr3jxsJ11vSa2l2RaPKgHsQ==
 
-expo-file-system-manager@..:
+expo-cache-manager@..:
   version "1.0.0"
 
 expo-file-system@~15.1.0, expo-file-system@~15.1.1:

@@ -1,5 +1,5 @@
 {
-  "name": "expo-file-system-manager",
+  "name": "expo-cache-manager",
   "version": "1.0.0",
   "description": "",
   "author": "WhidRubeld <whidrubeld@gmail.com>",
@@ -20,12 +20,12 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WhidRubeld/expo-file-system-manager.git"
+    "url": "git+https://github.com/WhidRubeld/expo-cache-manager.git"
   },
   "bugs": {
-    "url": "https://github.com/WhidRubeld/expo-file-system-manager/issues"
+    "url": "https://github.com/WhidRubeld/expo-cache-manager/issues"
   },
-  "homepage": "https://github.com/WhidRubeld/expo-file-system-manager#readme",
+  "homepage": "https://github.com/WhidRubeld/expo-cache-manager#readme",
   "peerDependencies": {
     "expo-file-system": "*",
     "react": "*",

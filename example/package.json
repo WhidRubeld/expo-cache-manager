@@ -1,5 +1,5 @@
 {
-  "name": "expo-file-system-manager-example",
+  "name": "expo-cache-manager-example",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "dependencies": {
     "expo": "~47.0.12",
     "expo-file-system": "~15.1.1",
-    "expo-file-system-manager": "..",
+    "expo-cache-manager": "..",
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",

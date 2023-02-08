@@ -46,6 +46,18 @@ export default function CachingImage({
     processingHalder()
   }, [])
 
+  const renderIcon = () => {
+    if (status === CacheEntryStatus.Progress) {
+      return <PauseIcon width={16} height={16} fill='#ffffff' />
+    }
+
+    if ([CacheEntryStatus.Pause, CacheEntryStatus.Pending].includes(status)) {
+      return <DownloadIcon width={24} height={24} fill='#ffffff' />
+    }
+
+    return null
+  }
+
   return (
     <View style={{ position: 'relative', backgroundColor: '#ccc' }}>
       {path ? (
@@ -64,15 +76,11 @@ export default function CachingImage({
             marginRight: 'auto',
             marginTop: 'auto',
             marginBottom: 'auto',
-            padding: 15,
+            padding: 20,
             backgroundColor: '#000'
           }}
         >
-          {CacheEntryStatus.Progress === status ? (
-            <PauseIcon width={16} height={16} fill='#ffffff' />
-          ) : (
-            <DownloadIcon width={24} height={24} fill='#ffffff' />
-          )}
+          {renderIcon()}
         </ProgressIndicator>
       </Pressable>
     </View>

@@ -39,14 +39,14 @@ export const defaultCacheImageProgressProps: Omit<
   }
 }
 
-export default function CachingImage({
+export const CachingImage = ({
   manager,
   uri,
   style,
   backgroundColor = '#cccccc',
   progressDelay = 2e2,
   progressProps
-}: CachingImageProps) {
+}: CachingImageProps) => {
   const progressMergedProps = {
     ...defaultCacheImageProgressProps,
     ...progressProps,

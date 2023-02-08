@@ -1,22 +1,13 @@
-import { useEffect, useState } from 'react'
 import { Button, ScrollView, StyleSheet, View, Text } from 'react-native'
-import CachingImage from './src/CachingImage'
-import { useCache, useCacheManager } from './src/hooks'
+import { useCache, useCacheManager, CachingImage } from 'expo-cache-manager'
 
 const IMAGE_1_URI = 'https://picsum.photos/3840/2160.jpg?random=first'
 const IMAGE_2_URI = 'https://picsum.photos/3840/2160.jpg?random=second'
 
 export default function Page() {
   const { resetAsync } = useCache()
-  const [time, setTime] = useState(true)
 
   const imageCache = useCacheManager('images')
-
-  useEffect(() => {
-    setTimeout(() => {
-      setTime(false)
-    }, 5e3)
-  }, [])
 
   return (
     <ScrollView>
@@ -41,7 +32,7 @@ export default function Page() {
           }}
         />
         <CachingImage
-          uri={IMAGE_1_URI}
+          uri={IMAGE_2_URI}
           manager='images'
           style={{
             flex: 1,

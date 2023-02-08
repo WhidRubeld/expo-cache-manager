@@ -3111,8 +3111,9 @@ expo-asset@~8.7.0:
     path-browserify "^1.0.0"
     url-parse "^1.5.9"
 
-expo-cache-manager@..:
-  version "1.0.0"
+"expo-cache-manager@link:..":
+  version "0.0.0"
+  uid ""
 
 expo-constants@~14.0.0, expo-constants@~14.0.2:
   version "14.0.2"

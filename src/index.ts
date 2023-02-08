@@ -7,3 +7,5 @@ export * from './ProgressIndicator'
 
 export * from './provider'
 export * from './hooks'
+
+export * from './CachingImage'

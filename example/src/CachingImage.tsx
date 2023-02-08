@@ -8,9 +8,9 @@ import {
   Image,
   ColorValue
 } from 'react-native'
-import { CacheEntryStatus } from './CacheEntry.class'
+import { CacheEntry, CacheEntryStatus } from './CacheEntry.class'
 import { useCacheFile } from './hooks'
-import { DownloadIcon, PauseIcon } from './icons'
+import { DownloadIcon, PauseIcon, PlayIcon } from './icons'
 import ProgressIndicator, { ProgressIndicatorProps } from './ProgressIndicator'
 
 export type CachingImageProps = {
@@ -56,8 +56,15 @@ export default function CachingImage({
     ])
   }
 
-  const { status, path, progress, downloadAsync, pauseAsync, resumeAsync } =
-    useCacheFile(uri, manager, { delay: progressDelay })
+  const {
+    ready,
+    status,
+    path,
+    progress,
+    downloadAsync,
+    pauseAsync,
+    resumeAsync
+  } = useCacheFile(uri, manager, { delay: progressDelay })
 
   const processingHalder = useCallback(() => {
     switch (status) {
@@ -77,8 +84,8 @@ export default function CachingImage({
   }, [status, downloadAsync, pauseAsync, resumeAsync])
 
   useEffect(() => {
-    processingHalder()
-  }, [])
+    if (ready) processingHalder()
+  }, [ready])
 
   const renderIcon = () => {
     const iconSize = progressMergedProps.size * 0.5
@@ -92,7 +99,17 @@ export default function CachingImage({
       )
     }
 
-    if ([CacheEntryStatus.Pause, CacheEntryStatus.Pending].includes(status)) {
+    if (status === CacheEntryStatus.Pause) {
+      return (
+        <PlayIcon
+          width={iconSize}
+          height={iconSize}
+          fill={progressMergedProps.color}
+        />
+      )
+    }
+
+    if (status === CacheEntryStatus.Pending) {
       return (
         <DownloadIcon
           width={iconSize}

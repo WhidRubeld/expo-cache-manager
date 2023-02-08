@@ -15,3 +15,11 @@ export const PauseIcon = (props: SvgProps) => {
     </Svg>
   )
 }
+
+export const PlayIcon = (props: SvgProps) => {
+  return (
+    <Svg viewBox='0 0 24 24' {...props}>
+      <Path d='M8,5.14V19.14L19,12.14L8,5.14Z' />
+    </Svg>
+  )
+}

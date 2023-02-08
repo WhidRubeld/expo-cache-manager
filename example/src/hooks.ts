@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
 import { Animated } from 'react-native'
 import {
   CacheEntry,
@@ -40,7 +40,7 @@ export const useCacheFile = (
   const initHandler = useCallback(() => {
     if (!m || !uri) return
     const entry = m.getEntry(uri)
-    console.log('TEST', entry)
+    // console.log('TEST', entry)
     setFile(entry)
     setStatus(CacheEntryStatus.Pending)
     setPath(null)
@@ -97,29 +97,30 @@ export const useCacheFile = (
   }, [progress, delay])
 
   return {
+    ready: !!file,
     status,
     path,
     progress: progressValue,
     error,
     downloadAsync: (props?: CacheEntryDownloadOptions) => {
       if (file) return file.downloadAsync(props)
-      return Promise.reject()
+      return Promise.reject('test')
     },
     pauseAsync: () => {
       if (file) return file.pauseAsync()
-      return Promise.reject()
+      return Promise.reject('test')
     },
     resumeAsync: () => {
       if (file) return file.resumeAsync()
-      return Promise.reject()
+      return Promise.reject('test')
     },
     cancelAsync: () => {
       if (file) return file.cancelAsync()
-      return Promise.reject()
+      return Promise.reject('test')
     },
     resetAsync: () => {
       if (file) return file.resetAsync()
-      return Promise.reject()
+      return Promise.reject('test')
     }
   }
 }

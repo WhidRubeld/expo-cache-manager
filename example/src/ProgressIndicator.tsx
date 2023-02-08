@@ -15,6 +15,7 @@ export type ProgressIndicatorProps = {
   width: number
   color: ColorValue
   style?: StyleProp<ViewStyle>
+  delay?: number
   children?: ReactNode
 }
 
@@ -24,6 +25,7 @@ export default function ProgressIndicator({
   width,
   color,
   style,
+  delay = 5e2,
   children
 }: ProgressIndicatorProps) {
   const [animatedValue] = useState(new Animated.Value(0))
@@ -101,10 +103,10 @@ export default function ProgressIndicator({
   useEffect(() => {
     Animated.timing(animatedValue, {
       toValue: progress,
-      duration: 5e2,
+      duration: delay,
       useNativeDriver: true
     }).start()
-  }, [progress])
+  }, [progress, delay])
 
   return (
     <View style={style}>

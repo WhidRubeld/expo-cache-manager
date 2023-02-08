@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect } from 'react'
 import {
   StyleProp,
   View,
@@ -7,13 +7,13 @@ import {
   ImageStyle,
   Image
 } from 'react-native'
-import { CacheEntryStatus, CacheEntryUpdateEvent } from './CacheEntry.class'
-import { CacheManager } from './CacheManager.class'
+import { CacheEntryStatus } from './CacheEntry.class'
+import { useCacheFile } from './hooks'
 import { DownloadIcon, PauseIcon } from './icons'
 import ProgressIndicator from './ProgressIndicator'
 
 export type CachingImageProps = {
-  manager: CacheManager
+  manager: string
   uri: string
   style?: StyleProp<ImageStyle>
 }
@@ -22,49 +22,25 @@ export default function CachingImage({
   uri,
   style
 }: CachingImageProps) {
-  const [status, setStatus] = useState<CacheEntryStatus>(
-    CacheEntryStatus.Pending
-  )
-  const [path, setPath] = useState<string | null>(null)
-  const [progress, setProgress] = useState<number>(0)
-
-  const file = useRef(manager.getEntry(uri)).current
-
-  const setState = useCallback((v: CacheEntryUpdateEvent) => {
-    setStatus(v.status)
-    setPath(v.path ?? null)
-    setProgress(v.progress)
-  }, [])
-
-  useEffect(() => {
-    if (!file) return
-
-    setState(file)
-    file.addListener('update', setState)
-
-    return () => {
-      file.removeListener('update', setState)
-    }
-  }, [uri])
+  const { status, path, progress, downloadAsync, pauseAsync, resumeAsync } =
+    useCacheFile(uri, manager)
 
   const processingHalder = useCallback(() => {
-    console.log(!!status, !!file)
-    if (!file || !status) return
     switch (status) {
       case CacheEntryStatus.Pending: {
-        file.downloadAsync()
+        downloadAsync()
         break
       }
       case CacheEntryStatus.Progress: {
-        file.pauseAsync()
+        pauseAsync()
         break
       }
       case CacheEntryStatus.Pause: {
-        file.resumeAsync()
+        resumeAsync()
         break
       }
     }
-  }, [file, status])
+  }, [status, downloadAsync, pauseAsync, resumeAsync])
 
   useEffect(() => {
     processingHalder()

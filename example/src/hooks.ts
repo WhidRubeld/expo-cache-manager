@@ -1,5 +1,9 @@
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import { CacheEntryStatus, CacheEntryUpdateEvent } from './CacheEntry.class'
+import {
+  CacheEntryDownloadOptions,
+  CacheEntryStatus,
+  CacheEntryUpdateEvent
+} from './CacheEntry.class'
 import { CacheManagerContext } from './provider'
 
 export const useCache = () => {
@@ -47,9 +51,21 @@ export const useCacheFile = (uri: string | null, manager: string) => {
     path,
     progress,
     error,
-    downloadAsync: file ? file.downloadAsync : () => Promise.reject(),
-    pauseAsync: file ? file.pauseAsync : () => Promise.reject(),
-    resumeAsync: file ? file.resumeAsync : () => Promise.reject(),
-    cancelAsync: file ? file.cancelAsync : () => Promise.reject()
+    downloadAsync: (props?: CacheEntryDownloadOptions) => {
+      if (file) return file.downloadAsync(props)
+      return Promise.reject()
+    },
+    pauseAsync: () => {
+      if (file) return file.pauseAsync()
+      return Promise.reject()
+    },
+    resumeAsync: () => {
+      if (file) return file.resumeAsync()
+      return Promise.reject()
+    },
+    cancelAsync: () => {
+      if (file) return file.cancelAsync()
+      return Promise.reject()
+    }
   }
 }

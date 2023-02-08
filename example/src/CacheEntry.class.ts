@@ -24,6 +24,7 @@ export type CacheEntryDownloadOptions = {
 } & FileSystemUploadOptions
 
 export enum CacheEntryStatus {
+  // Draft = 'draft',
   Pending = 'pending',
   Progress = 'progress',
   Pause = 'pause',
@@ -125,6 +126,7 @@ export class CacheEntry extends EventEmitter {
     return new Promise<string>(async (resolve, reject) => {
       try {
         if (this._task) throw new Error('Task is not defined')
+
         if (this._status !== CacheEntryStatus.Pending) {
           throw new Error('Task could not be started')
         }
@@ -155,9 +157,48 @@ export class CacheEntry extends EventEmitter {
         await this.onCompleteAsync()
         resolve(this._path)
       } catch (e) {
+        // console.log('TEST', e)
         await this.onTaskErrorAsync(e)
         reject(e)
       }
+
+      // if (this._task) {
+      //   return reject(new Error('Task is not defined'))
+      // }
+
+      // if (this._status !== CacheEntryStatus.Pending) {
+      //   return reject(new Error('Task could not be started'))
+      // }
+
+      // this._task = createDownloadResumable(
+      //   this.uri,
+      //   this._tmpPath,
+      //   options,
+      //   (data) => {
+      //     if (options?.onProgress) {
+      //       options.onProgress(Utils.progress2value(data))
+      //     }
+      //     this.onUpdateProgress(data)
+      //   }
+      // )
+
+      // this._status = CacheEntryStatus.Progress
+      // this.onUpdate()
+
+      // this._task
+      //   .downloadAsync()
+      //   .then((res) => {
+      //     if (res) {
+      //       const { status } = res
+      //       if (status < 200 || status >= 400) {
+      //         throw new Error('File upload failed')
+      //       }
+      //     }
+      //     return
+      //   })
+      //   .then(() => this.onCompleteAsync())
+      //   .then(() => resolve(this._path))
+      //   .catch((e) => this.onTaskErrorAsync(e).finally(() => reject(e)))
     })
   }
 

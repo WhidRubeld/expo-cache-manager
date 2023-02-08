@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useCallback, useState } from 'react'
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState
+} from 'react'
 import { CacheManager } from './CacheManager.class'
 
 export const CacheManagerContext = createContext<{
@@ -13,9 +19,13 @@ export const CacheManagerContext = createContext<{
 
 export const CacheManagerProvider = ({
   managers: m,
+  launch = true,
+  onReady = () => {},
   children
 }: {
   managers: string[]
+  launch?: boolean
+  onReady?: () => void
   children: ReactNode
 }) => {
   const [ready, setReady] = useState(false)
@@ -24,10 +34,15 @@ export const CacheManagerProvider = ({
   )
 
   const initAsync = useCallback(() => {
-    return Promise.all(managers.map((v) => v.initAsync)).then(() =>
+    return Promise.all(managers.map((v) => v.initAsync())).then(() => {
       setReady(true)
-    )
+      onReady()
+    })
   }, [managers])
+
+  useEffect(() => {
+    if (launch) initAsync()
+  }, [])
 
   return (
     <CacheManagerContext.Provider value={{ ready, managers, initAsync }}>

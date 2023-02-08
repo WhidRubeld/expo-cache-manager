@@ -21,6 +21,7 @@ export const defaultCacheManagerOptions: CacheManagerOptions = {
 export class CacheManager extends EventEmitter {
   private _ready: boolean
   private _entries: { [uri: string]: CacheEntry }
+  readonly folder: string
   private _folder: string
   private _tmpFolder: string
 
@@ -30,6 +31,7 @@ export class CacheManager extends EventEmitter {
 
     this._ready = false
     this._entries = {}
+    this.folder = options.folder
     this._folder = `${cacheDirectory}${options.folder}/`
     this._tmpFolder = `${cacheDirectory}${options.folder}-tmp/`
   }
@@ -137,9 +139,5 @@ export class CacheManager extends EventEmitter {
 
   get entries() {
     return this._entries
-  }
-
-  get folder() {
-    return this._folder
   }
 }

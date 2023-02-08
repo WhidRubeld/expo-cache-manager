@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import {
   StyleProp,
   View,
@@ -7,11 +7,7 @@ import {
   ImageStyle,
   Image
 } from 'react-native'
-import {
-  CacheEntry,
-  CacheEntryStatus,
-  CacheEntryUpdateEvent
-} from './CacheEntry.class'
+import { CacheEntryStatus, CacheEntryUpdateEvent } from './CacheEntry.class'
 import { CacheManager } from './CacheManager.class'
 import { DownloadIcon, PauseIcon } from './icons'
 import ProgressIndicator from './ProgressIndicator'
@@ -37,18 +33,7 @@ export default function CachingImage({
   const setState = useCallback((v: CacheEntryUpdateEvent) => {
     setStatus(v.status)
     setPath(v.path ?? null)
-
-    const progressValue = v.progress
-      ? Math.ceil(
-          (v.progress.totalBytesWritten /
-            v.progress.totalBytesExpectedToWrite) *
-            100
-        )
-      : v.path
-      ? 100
-      : 0
-
-    setProgress(progressValue)
+    setProgress(v.progress)
   }, [])
 
   useEffect(() => {
@@ -84,33 +69,6 @@ export default function CachingImage({
   useEffect(() => {
     processingHalder()
   }, [])
-
-  const renderProgress = () => {
-    return (
-      <Pressable onPress={processingHalder} style={StyleSheet.absoluteFill}>
-        <ProgressIndicator
-          progress={progress}
-          width={3}
-          size={36}
-          color='#ffffff'
-          style={{
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            marginTop: 'auto',
-            marginBottom: 'auto',
-            padding: 15,
-            backgroundColor: '#000'
-          }}
-        >
-          {CacheEntryStatus.Progress === status ? (
-            <PauseIcon width={16} height={16} fill='#ffffff' />
-          ) : (
-            <DownloadIcon width={24} height={24} fill='#ffffff' />
-          )}
-        </ProgressIndicator>
-      </Pressable>
-    )
-  }
 
   return (
     <View style={{ position: 'relative', backgroundColor: '#ccc' }}>

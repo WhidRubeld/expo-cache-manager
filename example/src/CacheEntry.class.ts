@@ -33,7 +33,7 @@ export enum CacheEntryStatus {
 export type CacheEntryUpdateEvent = {
   status: CacheEntryStatus
   path: string | null
-  progress?: DownloadProgressData
+  progress: number
   error?: any
 }
 
@@ -44,26 +44,28 @@ export class CacheEntry extends EventEmitter {
   private _task?: DownloadResumable
   private _path: string
   private _tmpPath: string
-  private _progress?: DownloadProgressData
+  private _progress: number
   private _error?: any
 
   constructor({ uri, folder, tmpFolder, completed }: CacheEntryOptions) {
     super()
 
     this.uri = uri
-    this._status = CacheEntryStatus.Pending
-
     this._path = Utils.uri2path(this.uri, folder)
     this._tmpPath = Utils.uri2path(this.uri, tmpFolder)
+    this._progress = 0
 
-    if (completed) this._status = CacheEntryStatus.Complete
+    this._status = CacheEntryStatus.Pending
+    if (completed) {
+      this._status = CacheEntryStatus.Complete
+      this._progress = 100
+    }
 
     this.onUpdate()
   }
 
   private onUpdateProgress(data: DownloadProgressData) {
-    this._progress = data
-
+    this._progress = Utils.progress2value(data)
     this.onUpdate()
   }
 
@@ -72,6 +74,7 @@ export class CacheEntry extends EventEmitter {
       try {
         await moveAsync({ from: this._tmpPath, to: this._path })
         await this.resetTaskAsync()
+
         this._status = CacheEntryStatus.Complete
         this.onUpdate()
 
@@ -87,7 +90,6 @@ export class CacheEntry extends EventEmitter {
     return new Promise<void>(async (resolve, reject) => {
       try {
         delete this._task
-        delete this._progress
         delete this._error
 
         if (withTmpFile && this._tmpPath) {
@@ -109,6 +111,7 @@ export class CacheEntry extends EventEmitter {
         await this.resetTaskAsync(true)
         this._status = CacheEntryStatus.Pending
         this._error = e
+        this._progress = 0
 
         this.onUpdate()
         resolve()
@@ -121,7 +124,10 @@ export class CacheEntry extends EventEmitter {
   public downloadAsync(options?: CacheEntryDownloadOptions) {
     return new Promise<string>(async (resolve, reject) => {
       try {
-        if (this._task) throw new Error('Task is defined')
+        if (this._task) throw new Error('Task is not defined')
+        if (this._status !== CacheEntryStatus.Pending) {
+          throw new Error('Task could not be started')
+        }
 
         this._task = createDownloadResumable(
           this.uri,
@@ -129,12 +135,7 @@ export class CacheEntry extends EventEmitter {
           options,
           (data) => {
             if (options?.onProgress) {
-              options.onProgress(
-                Math.ceil(
-                  (data.totalBytesWritten / data.totalBytesExpectedToWrite) *
-                    100
-                )
-              )
+              options.onProgress(Utils.progress2value(data))
             }
             this.onUpdateProgress(data)
           }
@@ -150,8 +151,8 @@ export class CacheEntry extends EventEmitter {
             throw new Error('File upload failed')
           }
         }
-        await this.onCompleteAsync()
 
+        await this.onCompleteAsync()
         resolve(this._path)
       } catch (e) {
         await this.onTaskErrorAsync(e)
@@ -161,49 +162,75 @@ export class CacheEntry extends EventEmitter {
   }
 
   public resumeAsync() {
-    return new Promise<string>((resolve, reject) => {
-      if (!this._task) return reject(new Error('Task not found'))
+    return new Promise<string>(async (resolve, reject) => {
+      try {
+        if (!this._task) throw new Error('Task is not defined')
+        if (this._status !== CacheEntryStatus.Pause) {
+          throw new Error('Task is not paused')
+        }
 
-      this._status = CacheEntryStatus.Progress
-      this.onUpdate()
-      this._task
-        .resumeAsync()
-        .then(this.onCompleteAsync)
-        .then(() => resolve(this._path))
-        .catch((e) => {
-          this.onTaskErrorAsync(e).finally(() => reject(e))
-        })
+        this._status = CacheEntryStatus.Progress
+        this.onUpdate()
+
+        const res = await this._task.resumeAsync()
+        if (res) {
+          const { status } = res
+          if (status < 200 || status >= 400) {
+            throw new Error('File upload failed')
+          }
+        }
+
+        await this.onCompleteAsync()
+        resolve(this._path)
+      } catch (e) {
+        await this.onTaskErrorAsync(e)
+        reject(e)
+      }
     })
   }
 
   public pauseAsync() {
-    return new Promise<DownloadPauseState>((resolve, reject) => {
-      if (!this._task) return reject(new Error('Task not found'))
+    return new Promise<DownloadPauseState>(async (resolve, reject) => {
+      try {
+        if (!this._task) throw new Error('Task is not defined')
+        if (this._status !== CacheEntryStatus.Progress) {
+          throw new Error('Task is not processing')
+        }
 
-      this._task
-        .pauseAsync()
-        .then((v) => {
-          this._status = CacheEntryStatus.Pause
-          this.onUpdate()
-          resolve(v)
-        })
-        .catch(reject)
+        const res = await this._task.pauseAsync()
+
+        this._status = CacheEntryStatus.Pause
+        this.onUpdate()
+
+        resolve(res)
+      } catch (e) {
+        reject(e)
+      }
     })
   }
 
   public cancelAsync() {
-    return new Promise<void>((resolve, reject) => {
-      if (!this._task) return reject(new Error('Task not found'))
+    return new Promise<void>(async (resolve, reject) => {
+      try {
+        if (!this._task) throw new Error('Task is not defined')
+        if (
+          ![CacheEntryStatus.Progress, CacheEntryStatus.Pause].includes(
+            this._status
+          )
+        ) {
+          throw new Error('Task could not be canceled')
+        }
 
-      this._task
-        .cancelAsync()
-        .then(() => this.resetTaskAsync())
-        .then(() => {
-          this._status = CacheEntryStatus.Pending
-          this.onUpdate()
-          resolve()
-        })
-        .catch(reject)
+        await this._task.cancelAsync()
+        await this.resetTaskAsync(true)
+
+        this._status = CacheEntryStatus.Pending
+        this.onUpdate()
+
+        resolve()
+      } catch (e) {
+        reject(e)
+      }
     })
   }
 

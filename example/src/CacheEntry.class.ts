@@ -147,58 +147,22 @@ export class CacheEntry extends EventEmitter {
         this.onUpdate()
 
         const res = await this._task.downloadAsync()
-        if (res) {
-          const { status } = res
-          if (status < 200 || status >= 400) {
-            throw new Error('File upload failed')
-          }
+        if (!res) {
+          return
+          // throw new Error('File upload not complete')
+        }
+
+        const { status } = res
+        if (status < 200 || status >= 400) {
+          throw new Error('File upload failed')
         }
 
         await this.onCompleteAsync()
         resolve(this._path)
       } catch (e) {
-        // console.log('TEST', e)
-        await this.onTaskErrorAsync(e)
+        this.onTaskErrorAsync(e)
         reject(e)
       }
-
-      // if (this._task) {
-      //   return reject(new Error('Task is not defined'))
-      // }
-
-      // if (this._status !== CacheEntryStatus.Pending) {
-      //   return reject(new Error('Task could not be started'))
-      // }
-
-      // this._task = createDownloadResumable(
-      //   this.uri,
-      //   this._tmpPath,
-      //   options,
-      //   (data) => {
-      //     if (options?.onProgress) {
-      //       options.onProgress(Utils.progress2value(data))
-      //     }
-      //     this.onUpdateProgress(data)
-      //   }
-      // )
-
-      // this._status = CacheEntryStatus.Progress
-      // this.onUpdate()
-
-      // this._task
-      //   .downloadAsync()
-      //   .then((res) => {
-      //     if (res) {
-      //       const { status } = res
-      //       if (status < 200 || status >= 400) {
-      //         throw new Error('File upload failed')
-      //       }
-      //     }
-      //     return
-      //   })
-      //   .then(() => this.onCompleteAsync())
-      //   .then(() => resolve(this._path))
-      //   .catch((e) => this.onTaskErrorAsync(e).finally(() => reject(e)))
     })
   }
 
@@ -214,17 +178,20 @@ export class CacheEntry extends EventEmitter {
         this.onUpdate()
 
         const res = await this._task.resumeAsync()
-        if (res) {
-          const { status } = res
-          if (status < 200 || status >= 400) {
-            throw new Error('File upload failed')
-          }
+        if (!res) {
+          return
+          // throw new Error('File upload not complete')
+        }
+
+        const { status } = res
+        if (status < 200 || status >= 400) {
+          throw new Error('File upload failed')
         }
 
         await this.onCompleteAsync()
         resolve(this._path)
       } catch (e) {
-        await this.onTaskErrorAsync(e)
+        this.onTaskErrorAsync(e)
         reject(e)
       }
     })

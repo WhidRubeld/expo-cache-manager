@@ -1,34 +1,146 @@
-import { useEffect, useMemo, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import {
+  StyleProp,
+  View,
+  StyleSheet,
+  Pressable,
+  ImageStyle,
+  Image
+} from 'react-native'
+import {
+  CacheEntry,
+  CacheEntryStatus,
+  CacheEntryUpdateEvent
+} from './CacheEntry.class'
 import { CacheManager } from './CacheManager.class'
+import { DownloadIcon, PauseIcon } from './icons'
+import ProgressIndicator from './ProgressIndicator'
 
-export default function CachingImage({
-  manager,
-  uri
-}: {
+export type CachingImageProps = {
   manager: CacheManager
   uri: string
-}) {
+  style?: StyleProp<ImageStyle>
+}
+export default function CachingImage({
+  manager,
+  uri,
+  style
+}: CachingImageProps) {
+  const [status, setStatus] = useState<CacheEntryStatus>(
+    CacheEntryStatus.Pending
+  )
   const [path, setPath] = useState<string | null>(null)
-  const [progress, setProgress] = useState(0)
+  const [progress, setProgress] = useState<number>(0)
+
+  const file = useRef(manager.getEntry(uri)).current
+
+  const setState = useCallback((v: CacheEntryUpdateEvent) => {
+    setStatus(v.status)
+    setPath(v.path ?? null)
+
+    const progressValue = v.progress
+      ? Math.ceil(
+          (v.progress.totalBytesWritten /
+            v.progress.totalBytesExpectedToWrite) *
+            100
+        )
+      : v.path
+      ? 100
+      : 0
+
+    setProgress(progressValue)
+  }, [])
 
   useEffect(() => {
-    const entry = manager.getEntry(uri)
-    if (!entry) return
+    if (!file) return
 
-    if (entry.path) {
-      setPath(entry.path)
-      setProgress(100)
-      return
+    setState(file)
+    file.addListener('update', setState)
+
+    return () => {
+      file.removeListener('update', setState)
     }
-
-    entry
-      .downloadAsync({
-        onProgress: setProgress
-      })
-      .then(setPath)
-
-    // console.log('Entry: ', entry)
   }, [uri])
 
-  return null
+  const processingHalder = useCallback(() => {
+    console.log(!!status, !!file)
+    if (!file || !status) return
+    switch (status) {
+      case CacheEntryStatus.Pending: {
+        file.downloadAsync()
+        break
+      }
+      case CacheEntryStatus.Progress: {
+        file.pauseAsync()
+        break
+      }
+      case CacheEntryStatus.Pause: {
+        file.resumeAsync()
+        break
+      }
+    }
+  }, [file, status])
+
+  useEffect(() => {
+    processingHalder()
+  }, [])
+
+  const renderProgress = () => {
+    return (
+      <Pressable onPress={processingHalder} style={StyleSheet.absoluteFill}>
+        <ProgressIndicator
+          progress={progress}
+          width={3}
+          size={36}
+          color='#ffffff'
+          style={{
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginTop: 'auto',
+            marginBottom: 'auto',
+            padding: 15,
+            backgroundColor: '#000'
+          }}
+        >
+          {CacheEntryStatus.Progress === status ? (
+            <PauseIcon width={16} height={16} fill='#ffffff' />
+          ) : (
+            <DownloadIcon width={24} height={24} fill='#ffffff' />
+          )}
+        </ProgressIndicator>
+      </Pressable>
+    )
+  }
+
+  return (
+    <View style={{ position: 'relative', backgroundColor: '#ccc' }}>
+      {path ? (
+        <Image source={{ uri: path }} style={style} />
+      ) : (
+        <View style={style} />
+      )}
+      <Pressable onPress={processingHalder} style={StyleSheet.absoluteFill}>
+        <ProgressIndicator
+          progress={progress}
+          width={3}
+          size={36}
+          color='#ffffff'
+          style={{
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginTop: 'auto',
+            marginBottom: 'auto',
+            padding: 15,
+            backgroundColor: '#000'
+          }}
+        >
+          {CacheEntryStatus.Progress === status ? (
+            <PauseIcon width={16} height={16} fill='#ffffff' />
+          ) : (
+            <DownloadIcon width={24} height={24} fill='#ffffff' />
+          )}
+        </ProgressIndicator>
+      </Pressable>
+    </View>
+  )
 }

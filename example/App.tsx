@@ -10,7 +10,7 @@ export default function App() {
 
   const init = async () => {
     try {
-      await cacheManager.initAsync()
+      // await cacheManager.initAsync()
       await cacheManager.resetAsync()
       setReady(true)
     } catch (e) {

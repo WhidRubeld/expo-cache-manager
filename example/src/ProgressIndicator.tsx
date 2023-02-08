@@ -118,16 +118,14 @@ export default function ProgressIndicator({
         }}
       >
         <Svg width={size} height={size}>
-          {progress > 0 && progress < 100 && (
-            <Path
-              d={path}
-              stroke={color}
-              strokeWidth={width}
-              strokeLinecap='square'
-              strokeLinejoin='round'
-              fill='transparent'
-            />
-          )}
+          <Path
+            d={path}
+            stroke={color}
+            strokeWidth={width}
+            strokeLinecap='square'
+            strokeLinejoin='round'
+            fill='transparent'
+          />
         </Svg>
       </Animated.View>
       {!!children && (

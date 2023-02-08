@@ -5,6 +5,7 @@ import {
   getInfoAsync,
   cacheDirectory
 } from 'expo-file-system'
+import { EventEmitter } from 'events'
 import { CacheEntry } from './CacheEntry.class'
 
 import { Utils } from './Utils.class'
@@ -17,13 +18,14 @@ export const defaultCacheManagerOptions: CacheManagerOptions = {
   folder: 'manager-cache'
 }
 
-export class CacheManager {
+export class CacheManager extends EventEmitter {
   private _ready: boolean
   private _entries: { [uri: string]: CacheEntry }
   private _folder: string
   private _tmpFolder: string
 
   constructor(opts?: Partial<CacheManagerOptions>) {
+    super()
     const options = Object.assign(defaultCacheManagerOptions, opts)
 
     this._ready = false

@@ -242,6 +242,25 @@ export class CacheEntry extends EventEmitter {
     })
   }
 
+  public resetAsync() {
+    return new Promise<void>(async (resolve, reject) => {
+      try {
+        if (this._status !== CacheEntryStatus.Complete) {
+          throw new Error('File not loaded')
+        }
+
+        await deleteAsync(this._path)
+        this._progress = 0
+        this._status = CacheEntryStatus.Pending
+
+        this.onUpdate()
+        resolve()
+      } catch (e) {
+        reject(e)
+      }
+    })
+  }
+
   get path() {
     return this._status === CacheEntryStatus.Complete ? this._path : null
   }

@@ -66,6 +66,10 @@ export const useCacheFile = (uri: string | null, manager: string) => {
     cancelAsync: () => {
       if (file) return file.cancelAsync()
       return Promise.reject()
+    },
+    resetAsync: () => {
+      if (file) return file.resetAsync()
+      return Promise.reject()
     }
   }
 }

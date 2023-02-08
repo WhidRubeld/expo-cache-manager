@@ -1,23 +1,58 @@
 import { useEffect, useState } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { Button, ScrollView, StyleSheet, View, Text } from 'react-native'
 import CachingImage from './src/CachingImage'
+import { useCache, useCacheManager } from './src/hooks'
 
-const IMAGE_URI = 'https://picsum.photos/3840/2160.jpg?random=test'
+const IMAGE_1_URI = 'https://picsum.photos/3840/2160.jpg?random=first'
+const IMAGE_2_URI = 'https://picsum.photos/3840/2160.jpg?random=second'
 
 export default function Page() {
+  const { resetAsync } = useCache()
+
+  const imageCache = useCacheManager('images')
+
   return (
-    <View>
-      <CachingImage
-        uri={IMAGE_URI}
-        manager='images'
+    <ScrollView>
+      <Text
         style={{
-          height: 300,
-          backgroundColor: '#ccc',
           marginTop: 50,
-          marginHorizontal: 20
+          marginBottom: 20,
+          fontSize: 16,
+          fontWeight: 'bold'
         }}
-      />
-    </View>
+      >
+        Images cache manager
+      </Text>
+      <View style={{ flexDirection: 'row' }}>
+        <CachingImage
+          uri={IMAGE_1_URI}
+          manager='images'
+          style={{
+            flex: 1,
+            height: 150,
+            marginHorizontal: 10
+          }}
+        />
+        <CachingImage
+          uri={IMAGE_2_URI}
+          manager='images'
+          style={{
+            flex: 1,
+            height: 150,
+            marginHorizontal: 10
+          }}
+        />
+      </View>
+      <View style={{ marginTop: 20 }}>
+        <Button
+          onPress={() => imageCache?.resetAsync()}
+          title='Reset image cache'
+        />
+      </View>
+      <View style={{ marginTop: 20 }}>
+        <Button onPress={() => resetAsync()} title='Reset all cache' />
+      </View>
+    </ScrollView>
   )
 }
 

@@ -18,6 +18,7 @@ export type CachingImageProps = {
   uri: string
   style?: StyleProp<ImageStyle>
   backgroundColor?: ColorValue
+  progressDelay?: number
   progressProps?: Omit<ProgressIndicatorProps, 'progress'>
 }
 
@@ -26,7 +27,7 @@ export const defaultCacheImageProgressProps: Omit<
   'progress'
 > = {
   width: 3,
-  size: 36,
+  size: 40,
   delay: 0,
   color: '#ffffff',
   style: {
@@ -43,6 +44,7 @@ export default function CachingImage({
   uri,
   style,
   backgroundColor = '#cccccc',
+  progressDelay = 2e2,
   progressProps
 }: CachingImageProps) {
   const progressMergedProps = {
@@ -55,7 +57,7 @@ export default function CachingImage({
   }
 
   const { status, path, progress, downloadAsync, pauseAsync, resumeAsync } =
-    useCacheFile(uri, manager)
+    useCacheFile(uri, manager, { delay: progressDelay })
 
   const processingHalder = useCallback(() => {
     switch (status) {
@@ -79,15 +81,24 @@ export default function CachingImage({
   }, [])
 
   const renderIcon = () => {
+    const iconSize = progressMergedProps.size * 0.5
     if (status === CacheEntryStatus.Progress) {
       return (
-        <PauseIcon width={16} height={16} fill={progressMergedProps.color} />
+        <PauseIcon
+          width={iconSize}
+          height={iconSize}
+          fill={progressMergedProps.color}
+        />
       )
     }
 
     if ([CacheEntryStatus.Pause, CacheEntryStatus.Pending].includes(status)) {
       return (
-        <DownloadIcon width={24} height={24} fill={progressMergedProps.color} />
+        <DownloadIcon
+          width={iconSize}
+          height={iconSize}
+          fill={progressMergedProps.color}
+        />
       )
     }
 
@@ -95,11 +106,14 @@ export default function CachingImage({
   }
 
   return (
-    <View style={{ position: 'relative', backgroundColor }}>
+    <View style={[style, { backgroundColor }]}>
       {path && progress === 100 ? (
-        <Image source={{ uri: path }} style={style} />
+        <Image
+          source={{ uri: path }}
+          style={{ width: '100%', height: '100%' }}
+        />
       ) : (
-        <View style={style} />
+        <View style={{ width: '100%', height: '100%' }} />
       )}
       {progress < 100 && (
         <Pressable onPress={processingHalder} style={StyleSheet.absoluteFill}>

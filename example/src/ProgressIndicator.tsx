@@ -25,7 +25,7 @@ export default function ProgressIndicator({
   width,
   color,
   style,
-  delay = 5e2,
+  delay = 2e2,
   children
 }: ProgressIndicatorProps) {
   const [animatedValue] = useState(new Animated.Value(0))

@@ -60,6 +60,7 @@ export class CacheManager extends EventEmitter {
 
         this._ready = true
 
+        this.emit('ready')
         resolve()
       } catch (e) {
         console.warn(e)
@@ -81,6 +82,8 @@ export class CacheManager extends EventEmitter {
 
         this._entries = {}
         this._ready = true
+
+        this.emit('reset')
         resolve()
       } catch (e) {
         console.warn(e)

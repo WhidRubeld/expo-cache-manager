@@ -11,10 +11,12 @@ export const CacheManagerContext = createContext<{
   managers: CacheManager[]
   ready: boolean
   initAsync: () => Promise<void>
+  resetAsync: () => Promise<void>
 }>({
   managers: [],
   ready: false,
-  initAsync: () => Promise.reject()
+  initAsync: () => Promise.reject(),
+  resetAsync: () => Promise.reject()
 })
 
 export const CacheManagerProvider = ({
@@ -40,12 +42,18 @@ export const CacheManagerProvider = ({
     })
   }, [managers])
 
+  const resetAsync = useCallback(() => {
+    return Promise.all(managers.map((v) => v.resetAsync())).then(() => {})
+  }, [managers])
+
   useEffect(() => {
     if (launch) initAsync()
   }, [])
 
   return (
-    <CacheManagerContext.Provider value={{ ready, managers, initAsync }}>
+    <CacheManagerContext.Provider
+      value={{ ready, managers, initAsync, resetAsync }}
+    >
       {children}
     </CacheManagerContext.Provider>
   )

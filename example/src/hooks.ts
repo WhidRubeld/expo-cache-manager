@@ -1,4 +1,5 @@
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { Animated } from 'react-native'
 import {
   CacheEntryDownloadOptions,
   CacheEntryStatus,
@@ -15,7 +16,11 @@ export const useCacheManager = (manager: string) => {
   return cache.managers.find((v) => v.folder === manager) || null
 }
 
-export const useCacheFile = (uri: string | null, manager: string) => {
+export const useCacheFile = (
+  uri: string | null,
+  manager: string,
+  { delay }: { delay: number } = { delay: 5e2 }
+) => {
   const m = useCacheManager(manager)
 
   const file = useMemo(() => {
@@ -27,8 +32,11 @@ export const useCacheFile = (uri: string | null, manager: string) => {
     CacheEntryStatus.Pending
   )
   const [path, setPath] = useState<string | null>(null)
-  const [progress, setProgress] = useState<number>(0)
   const [error, setError] = useState<any>()
+
+  const [progress, setProgress] = useState<number>(0)
+  const [animatedProgress] = useState(new Animated.Value(0))
+  const [progressValue, setProgressValue] = useState<number>(0)
 
   const handleUpdate = useCallback((v: CacheEntryUpdateEvent) => {
     setStatus(v.status)
@@ -46,10 +54,28 @@ export const useCacheFile = (uri: string | null, manager: string) => {
     }
   }, [file])
 
+  useEffect(() => {
+    const listener = animatedProgress.addListener(({ value: v }) =>
+      setProgressValue(v)
+    )
+
+    return () => {
+      animatedProgress.removeListener(listener)
+    }
+  }, [])
+
+  useEffect(() => {
+    Animated.timing(animatedProgress, {
+      toValue: progress,
+      duration: delay,
+      useNativeDriver: true
+    }).start()
+  }, [progress, delay])
+
   return {
     status,
     path,
-    progress,
+    progress: progressValue,
     error,
     downloadAsync: (props?: CacheEntryDownloadOptions) => {
       if (file) return file.downloadAsync(props)

@@ -5,7 +5,7 @@ import {
   getInfoAsync,
   cacheDirectory
 } from 'expo-file-system'
-import { EventEmitter } from 'events'
+import { EventEmitter } from 'eventemitter3'
 import { CacheEntry } from './CacheEntry.class'
 
 import { Utils } from './Utils.class'
@@ -18,7 +18,7 @@ export const defaultCacheManagerOptions: CacheManagerOptions = {
   folder: 'manager-cache'
 }
 
-export class CacheManager extends EventEmitter {
+export class CacheManager extends EventEmitter<'ready' | 'reset'> {
   private _ready: boolean
   private _entries: { [uri: string]: CacheEntry }
   readonly folder: string

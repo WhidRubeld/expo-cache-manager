@@ -62,6 +62,7 @@ export const useCacheFile = (
 
     return () => {
       file.removeListener('update', handleUpdate)
+      console.log(file.listenerCount('update'))
     }
   }, [file])
 

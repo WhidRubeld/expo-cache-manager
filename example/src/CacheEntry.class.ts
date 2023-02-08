@@ -9,7 +9,7 @@ import {
   DownloadProgressData,
   FileSystemUploadOptions
 } from 'expo-file-system/build/FileSystem.types'
-import { EventEmitter } from 'events'
+import { EventEmitter } from 'eventemitter3'
 import { Utils } from './Utils.class'
 
 export type CacheEntryOptions = {
@@ -38,7 +38,7 @@ export type CacheEntryUpdateEvent = {
   error?: any
 }
 
-export class CacheEntry extends EventEmitter {
+export class CacheEntry extends EventEmitter<'update'> {
   readonly uri: string
 
   private _status: CacheEntryStatus
@@ -125,7 +125,7 @@ export class CacheEntry extends EventEmitter {
   public downloadAsync(options?: CacheEntryDownloadOptions) {
     return new Promise<string>(async (resolve, reject) => {
       try {
-        if (this._task) throw new Error('Task is not defined')
+        if (this._task) throw new Error('Task is defined')
 
         if (this._status !== CacheEntryStatus.Pending) {
           throw new Error('Task could not be started')
@@ -169,7 +169,7 @@ export class CacheEntry extends EventEmitter {
   public resumeAsync() {
     return new Promise<string>(async (resolve, reject) => {
       try {
-        if (!this._task) throw new Error('Task is not defined')
+        if (!this._task) throw new Error('Task is not defined (resume)')
         if (this._status !== CacheEntryStatus.Pause) {
           throw new Error('Task is not paused')
         }
@@ -200,7 +200,7 @@ export class CacheEntry extends EventEmitter {
   public pauseAsync() {
     return new Promise<DownloadPauseState>(async (resolve, reject) => {
       try {
-        if (!this._task) throw new Error('Task is not defined')
+        if (!this._task) throw new Error('Task is not defined (pause)')
         if (this._status !== CacheEntryStatus.Progress) {
           throw new Error('Task is not processing')
         }
@@ -220,7 +220,7 @@ export class CacheEntry extends EventEmitter {
   public cancelAsync() {
     return new Promise<void>(async (resolve, reject) => {
       try {
-        if (!this._task) throw new Error('Task is not defined')
+        if (!this._task) throw new Error('Task is not defined (cancel)')
         if (
           ![CacheEntryStatus.Progress, CacheEntryStatus.Pause].includes(
             this._status

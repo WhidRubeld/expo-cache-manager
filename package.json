@@ -1,57 +1,170 @@
 {
   "name": "expo-cache-manager",
-  "version": "1.0.0",
-  "description": "",
-  "author": "WhidRubeld <whidrubeld@gmail.com>",
-  "license": "MIT",
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "version": "0.1.0",
+  "description": "test",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
   "files": [
-    "dist/*",
-    "src/*"
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "*.podspec",
+    "!lib/typescript/example",
+    "!ios/build",
+    "!android/build",
+    "!android/gradle",
+    "!android/gradlew",
+    "!android/gradlew.bat",
+    "!android/local.properties",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
+    "!**/.*"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint src/**/*.{ts,tsx}",
-    "format": "prettier .  --write"
+    "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "prepack": "bob build",
+    "release": "release-it",
+    "example": "yarn --cwd example",
+    "bootstrap": "yarn example && yarn install"
   },
-  "keywords": [],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WhidRubeld/expo-cache-manager.git"
-  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "repository": "https://github.com/WhidRubeld/expo-cache-manager",
+  "author": "Gennady Vasilev <whidrubeld@gmail.com> (https://github.com/WhidRubeld)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/WhidRubeld/expo-cache-manager/issues"
   },
   "homepage": "https://github.com/WhidRubeld/expo-cache-manager#readme",
-  "peerDependencies": {
-    "expo-file-system": "*",
-    "react": "*",
-    "react-native": "*",
-    "react-native-svg": "*"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@types/react": "^18.0.24",
-    "@types/react-native": "~0.70.5",
-    "@typescript-eslint/eslint-plugin": "^5.49.0",
-    "@typescript-eslint/parser": "^5.49.0",
-    "@vitejs/plugin-react": "^3.1.0",
-    "eslint": "^8.33.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-import": "^2.27.5",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@evilmartians/lefthook": "^1.2.2",
+    "@react-native-community/eslint-config": "^3.0.2",
+    "@release-it/conventional-changelog": "^5.0.0",
+    "@types/jest": "^28.1.2",
+    "@types/react": "~17.0.21",
+    "@types/react-native": "0.70.0",
+    "commitlint": "^17.0.2",
+    "del-cli": "^5.0.0",
+    "eslint": "^8.4.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "expo-file-system": "^15.1.1",
-    "prettier": "^2.8.3",
-    "react": "^18.1.0",
-    "react-native": "^0.70.5",
+    "expo-modules-core": "~1.0.4",
+    "jest": "^28.1.1",
+    "prettier": "^2.0.5",
+    "react": "18.1.0",
+    "react-native": "0.70.5",
+    "react-native-builder-bob": "^0.20.0",
     "react-native-svg": "^13.8.0",
-    "typescript": "^4.9.5",
-    "vite": "^4.0.4",
-    "vite-plugin-dts": "^1.7.2"
+    "release-it": "^15.0.0",
+    "typescript": "^4.5.2"
   },
-  "publishConfig": {
-    "access": "public"
+  "resolutions": {
+    "@types/react": "17.0.21"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "engines": {
+    "node": ">= 16.0.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/node_modules",
+      "<rootDir>/lib/"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular"
+      }
+    }
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@react-native-community",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "jsxSingleQuote": true,
+          "semi": false,
+          "tabWidth": 2,
+          "bracketSpacing": true,
+          "jsxBracketSameLine": false,
+          "arrowParens": "always",
+          "trailingComma": "none"
+        }
+      ],
+      "react/react-in-jsx-scope": "off",
+      "react-native/no-inline-styles": "off",
+      "react-hooks/exhaustive-deps": "off"
+    }
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ],
+  "prettier": {
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "semi": false,
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "arrowParens": "always",
+    "trailingComma": "none"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
   },
   "dependencies": {
     "eventemitter3": "^5.0.0"

@@ -1,18 +1,28 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "expo-cache-manager": ["./src/index"]
+    },
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "esModuleInterop": true,
+    "importsNotUsedAsValues": "error",
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
-    "outDir": "dist",
-    "target": "esnext",
+    "lib": ["esnext"],
     "module": "esnext",
-    "lib": ["esnext", "dom"],
     "moduleResolution": "node",
-    // "strict": true,
-    "pretty": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noStrictGenericChecks": false,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": ["src/**/*"]
+    "strict": true,
+    "target": "esnext"
+  }
 }

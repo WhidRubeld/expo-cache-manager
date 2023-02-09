@@ -8,7 +8,7 @@ import {
   Image,
   ColorValue
 } from 'react-native'
-import { CacheEntry, CacheEntryStatus } from './CacheEntry.class'
+import { CacheEntryStatus } from './CacheEntry.class'
 import { useCacheFile } from './hooks'
 import { DownloadIcon, PauseIcon, PlayIcon } from './icons'
 import ProgressIndicator, { ProgressIndicatorProps } from './ProgressIndicator'

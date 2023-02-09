@@ -107,7 +107,7 @@ export class CacheManager extends EventEmitter<'ready' | 'reset'> {
       })
     }
 
-    return this._entries[uri]
+    return this._entries[uri] ?? null
   }
 
   public getCacheSizeAsync(withTmp: boolean = false) {

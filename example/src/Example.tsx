@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Button, ScrollView, StyleSheet, View, Text } from 'react-native'
 import { useCache, useCacheManager, CachingImage } from 'expo-cache-manager'
 
@@ -6,7 +7,6 @@ const IMAGE_2_URI = 'https://picsum.photos/3840/2160.jpg?random=second'
 
 export default function Page() {
   const { resetAsync } = useCache()
-
   const imageCache = useCacheManager('images')
 
   return (

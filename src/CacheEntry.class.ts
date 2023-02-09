@@ -4,7 +4,7 @@ import {
   DownloadResumable,
   moveAsync
 } from 'expo-file-system'
-import {
+import type {
   DownloadPauseState,
   DownloadProgressData,
   FileSystemUploadOptions

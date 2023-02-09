@@ -1,4 +1,4 @@
-import { DownloadProgressData } from 'expo-file-system'
+import type { DownloadProgressData } from 'expo-file-system'
 
 export class Utils {
   static str2hex(uri: string) {
@@ -39,7 +39,6 @@ export class Utils {
   static uri2path(uri: string, folder: string) {
     const path = this.getUriPath(uri)
     const ext = this.getUriExtension(uri)
-    const tmpHash = new Date().getTime()
 
     return `${folder}${
       ext ? `${this.str2hex(path)}.${ext}` : this.str2hex(path)

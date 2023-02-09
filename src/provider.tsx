@@ -3,6 +3,7 @@ import {
   ReactNode,
   useCallback,
   useEffect,
+  useRef,
   useState
 } from 'react'
 import { CacheManager } from './CacheManager.class'
@@ -31,9 +32,7 @@ export const CacheManagerProvider = ({
   children: ReactNode
 }) => {
   const [ready, setReady] = useState(false)
-  const [managers] = useState<CacheManager[]>(
-    m.map((v) => new CacheManager({ folder: v }))
-  )
+  const managers = useRef(m.map((v) => new CacheManager({ folder: v }))).current
 
   const initAsync = useCallback(() => {
     return Promise.all(managers.map((v) => v.initAsync())).then(() => {

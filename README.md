@@ -19,11 +19,13 @@ npx expo install expo-file-system expo-cache-manager react-native-svg
 1. Install dependencies
 ```sh
 yarn add expo-file-system expo-cache-manager react-native-svg
+# or
+npm i expo-file-system expo-cache-manager react-native-svg
 ```
 2. Follow the instructions to install [expo-file-system](https://github.com/expo/expo/tree/sdk-47/packages/expo-file-system) package
 3. Follow the instructions to install [react-native-svg](https://github.com/software-mansion/react-native-svg) package
 
-## Usage - Quick start
+## Quick start
 
 ```tsx
 import { useState } from 'react'
@@ -51,15 +53,28 @@ export default function App() {
 
 ### Provider
 ````ts
-const options: CacheManagerProviderOptions =  { ... }
-
 return (
-  <CacheManagerProvider {...options}>
+  <CacheManagerProvider
+    managers={['images', 'files']}
+    onReady={() => console.log('Provider is ready')}
+  >
     ...
   <CacheManagerProvider>
 )
 
 ````
+
+*Props*
+
+`CacheManagerProviderProps`
+
+*Default props*
+```ts
+{
+  launch: true
+  onReady: () => {}
+}
+```
 
 ### Hooks
 
@@ -88,6 +103,7 @@ const manager = useCacheManager('images')
 | Prop | Type | Required | Description | Default |
 | ------- | ------- | ------- | --------- | ------- |
 | name | `string` | `true` | Manager name | - |
+
 
 *Return*
 ```ts
@@ -118,10 +134,11 @@ const {
 | manager | `string` | `true` | Manager name | - |
 | options | `{ delay: number }` | `false` | Progress delay in ms | `{ delay: 2e2 }` |
 
+
 *Return*
 ```ts
 {
-  ready: boolean // Is the file created in the manager
+  ready: boolean // is the file created in the manager
   status: CacheEntryStatus
   path: string | null
   progress: number
@@ -134,6 +151,89 @@ const {
 
 ### Components
 
+#### `CachingImage`
+Ready-made component for displaying the cached image.
+
+*Usage*
+```tsx
+<CachingImage
+  manager="images"
+  uri="remote-file-uri"
+  style={{ width: '100%', height: 300 }}
+  backgroundColor="#eeeeee"
+  progressDelay={5e2}
+  autoLoad
+  toggleButtons
+  progressProps={{
+    width: 3.5,
+    size: 50,
+    color: '#000000',
+    style: {{ padding: 30 }}
+  }}
+/>
+```
+
+*Props*
+
+`CachingImageProps`
+
+*Default props*
+```ts
+{
+  backgroundColor: '#cccccc',
+  progressDelay: 2e2,
+  autoLoad: true,
+  toggleButtons: false,
+  progressProps: {
+    width: 3,
+    size: 40,
+    color: '#ffffff',
+    style: {
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      marginTop: 'auto',
+      marginBottom: 'auto',
+      padding: 20
+    }
+  }
+}
+```
+
+#### `ProgressIndicator`
+Ready-made progress indicator component.
+
+*Usage*
+```tsx
+<ProgressIndiator
+  progress={progress}
+  width={3}
+  size={40}
+  color='#ffffff'
+  style={{
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 'auto',
+    marginBottom: 'auto',
+    padding: 20
+  }}
+  delay={2e2}
+>
+  ...
+</ProgressIndiator>
+```
+
+*Props*
+
+`ProgressIndicatorProps`
+
+*Default props*
+```ts
+{
+  delay: 2e2
+}
+```
+
+
 ### Classes
 
 ### Types
@@ -142,11 +242,12 @@ const {
 ```ts
 {
   managers: string[] // array of names for managers
-  launch?: boolean // startup status at initialization
-  onReady?: () => void // callback after completion of initialization
+  launch?: boolean // whether to run init automatically
+  onReady?: () => void // init cb
   children: ReactNode
 }
 ```
+
 #### `CacheManagerContextValue`
 ```ts
 {
@@ -156,6 +257,37 @@ const {
   resetAsync: () => Promise<void> // run reset of all managers
 }
 ```
+
+#### `CachingImageProps`
+```ts
+{
+  manager: string
+  uri: string
+  style?: StyleProp<ImageStyle>
+  backgroundColor?: ColorValue
+  progressDelay?: number
+  autoLoad?: boolean // whether to start loading on init and on cache flush
+  toggleButtons?: boolean // whether to display pause and resume buttons
+  progressProps?: Omit<
+    ProgressIndicatorProps,
+    'progress' | 'children' | 'delay'
+  >
+}
+```
+
+#### `ProgressIndicatorProps`
+```ts
+{
+  progress: number // progress value
+  size: number
+  width: number
+  color: ColorValue
+  style?: StyleProp<ViewStyle>
+  delay?: number // animation delay
+  children?: ReactNode
+}
+```
+
 #### `CacheEntryOptions`
 ```ts
 {
@@ -165,14 +297,18 @@ const {
   completed?: boolean // for setting complete status
 }
 ```
-See [cacheDirectory](https://docs.expo.dev/versions/latest/sdk/filesystem/#filesystemcachedirectory) constant.
+See [cacheDirectory](https://docs.expo.dev/versions/latest/sdk/filesystem/#filesystemcachedirectory) constant in `expo-file-system`.
 
 #### `CacheEntryDownloadOptions`
 ```ts
 {
   onProgress?: (progress: number) => void // download cb from 0 to 100
-} & FileSystemUploadOptions
+} & DownloadOptions
 ```
+See [DownloadOptions](https://docs.expo.dev/versions/latest/sdk/filesystem/#downloadoptions) in `expo-file-system`.
+
+### `DownloadPauseState`
+See [DownloadPauseState](https://docs.expo.dev/versions/latest/sdk/filesystem/#filesystemcachedirectory) in `expo-file-system`.
 
 #### `CacheEntryUpdateEvent`
 ```ts

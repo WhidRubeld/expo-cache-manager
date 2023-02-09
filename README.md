@@ -1,31 +1,63 @@
 # expo-cache-manager
 
-Cache manager for React native projects with expo-file-system
+<img src="https://i.ibb.co/FbdwMck/expo-cache-manager-example.gif" width="250px" alt="expo-cache-manager-example" border="0">
+
+[Example source code](https://github.com/WhidRubeld/expo-cache-manager/tree/master/example)
+
+Cache manager for React Native projects with [expo-file-system](https://docs.expo.dev/versions/latest/sdk/filesystem/).
 
 ## Installation
 
+Managed workflow
 ```sh
-npm install expo-cache-manager
+npx expo install expo-file-system expo-cache-manager react-native-svg
 ```
 
-## Usage
+Bare workflow
 
-```js
-import { multiply } from 'expo-cache-manager';
-
-// ...
-
-const result = await multiply(3, 7);
+1. Install dependencies
+```sh
+yarn add expo-file-system expo-cache-manager react-native-svg
 ```
+
+2. Follow the instructions to install [expo-file-system](https://github.com/expo/expo/tree/sdk-47/packages/expo-file-system) package
+
+3. Follow the instructions to install [react-native-svg](https://github.com/software-mansion/react-native-svg) package
+
+
+## Usage - Quick start
+
+```ts
+import { useState } from 'react'
+import { CacheManagerProvider, CachingImage } from 'expo-cache-manager'
+
+import Page from './Page'
+
+export default function App() {
+  const [ready, setReady] = useState(false)
+
+  return (
+    <CacheManagerProvider
+      managers={['images']}
+      onReady={() => setReady(true)}
+    >
+      {ready && (
+        <CachingImage uri='your-image-url' manager='images' />
+      )}
+    </CacheManagerProvider>
+  )
+}
+```
+[Full example](https://github.com/WhidRubeld/expo-cache-manager/tree/master/example)
+
+
+## Documentation
+
+
 
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
 ## License
-
 MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)

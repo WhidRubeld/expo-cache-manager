@@ -5,9 +5,9 @@ import {
   moveAsync
 } from 'expo-file-system'
 import type {
+  DownloadOptions,
   DownloadPauseState,
-  DownloadProgressData,
-  FileSystemUploadOptions
+  DownloadProgressData
 } from 'expo-file-system/build/FileSystem.types'
 import { EventEmitter } from 'eventemitter3'
 import { Utils } from './Utils.class'
@@ -21,10 +21,9 @@ export type CacheEntryOptions = {
 
 export type CacheEntryDownloadOptions = {
   onProgress?: (progress: number) => void // 0-100
-} & FileSystemUploadOptions
+} & DownloadOptions
 
 export enum CacheEntryStatus {
-  // Draft = 'draft',
   Pending = 'pending',
   Progress = 'progress',
   Pause = 'pause',

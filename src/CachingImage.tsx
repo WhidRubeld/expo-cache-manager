@@ -21,12 +21,15 @@ export type CachingImageProps = {
   progressDelay?: number
   autoLoad?: boolean
   toggleButtons?: boolean
-  progressProps?: Omit<ProgressIndicatorProps, 'progress'>
+  progressProps?: Omit<
+    ProgressIndicatorProps,
+    'progress' | 'children' | 'delay'
+  >
 }
 
 export const defaultCacheImageProgressProps: Omit<
   ProgressIndicatorProps,
-  'progress'
+  'progress' | 'children'
 > = {
   width: 3,
   size: 40,

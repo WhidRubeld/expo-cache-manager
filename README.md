@@ -1,5 +1,9 @@
 # expo-cache-manager
 
+<p>
+  <a href="https://www.npmjs.com/package/expo-cache-manager"><img alt="npm version" src="https://img.shields.io/npm/v/expo-cache-manager"></a>
+</p>
+
 <img src="https://github.com/WhidRubeld/expo-cache-manager/blob/master/example/result.gif" width="250px" alt="expo-cache-manager-example" border="0">
 
 [Example source code](https://github.com/WhidRubeld/expo-cache-manager/tree/master/example)

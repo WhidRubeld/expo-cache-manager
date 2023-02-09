@@ -233,8 +233,102 @@ Ready-made progress indicator component.
 }
 ```
 
+#### `ProgressIcon`
+Ready-made component for displaying the action status icon.
 
-### Classes
+*Usage*
+```tsx
+<ProgressIcon
+  status={status}
+  size={21}
+  color="#000000"
+  toggleButtons
+/>
+```
+
+*Props*
+
+`ProgressIconProps`
+
+*Default props*
+```ts
+{
+  color: '#ffffff',
+  toggleButtons: false
+}
+```
+
+#### Svg icons
+Components of SVG icons that are used in this library. [See details](https://github.com/WhidRubeld/expo-cache-manager/blob/master/src/icons.tsx).
+
+### Classes (advanced)
+
+#### `CacheManager`
+Class for creating a cache manager. This class extends from [EventEmitter](https://github.com/primus/eventemitter3).
+
+*Usage*
+```ts
+export const manager = new CacheManager({ folder: 'images' })
+```
+
+*Properties (readonly)*
+| Name | Type  | Description |
+| ------- | ------- | ---------- |
+| ready | `boolean` | Ready status |
+| folder | `string` | Folder name |
+| entries | `CacheEntry[]` | Array of manager files |
+
+*Methods*
+| Name | Props | Default props | Description | Return |
+| ------- | ------- | ------- | ---------- | ------- |
+| initAsync | - | - | Run manager init | `Promise<void>` |
+| resetAsync | - | - | Reset cache manager | `Promise<void>` |
+| getEntry | `(name: string)` | - | Get entry file (with add if not found) | `CacheEntry \| null` |
+| getCacheSizeAsync | `(withTmp?: boolean)` | `(false)` | Get manager cache size (in bytes) | `Promise<void>` |
+
+*Events*
+| Name | Value |
+| ---- | ---- |
+| init | - |
+| reset | - |
+
+#### `CacheEntry`
+Class for creating a cache file. This class extends from [EventEmitter](https://github.com/primus/eventemitter3).
+
+*Usage*
+```ts
+const entry = new CacheEntry({
+  uri: 'remote-file-uri',
+  folder: `${cacheDirectory}${'manager-name'}/`,
+  tmpFolder: `${cacheDirectory}${'manager-name'}-tmp/`
+})
+```
+
+*Properties (readonly)*
+| Name | Type  | Description |
+| ------- | ------- | ---------- |
+| uri | `string` | Remote file uri |
+| status | `CacheEntryStatus` | Entry status |
+| path | `string \| null` | Local path |
+| progress | `number` | Download progress |
+| error | `any` | Any runtime error |
+
+*Methods*
+| Name | Props | Default props | Description | Return |
+| ------- | ------- | ------- | ---------- | ------- |
+| downloadAsync | `(options?: CacheEntryDownloadOptions)` | - | Run download | `Promise<string>` |
+| pauseAsync | - | - | Pause download | `Promise<DownloadPauseState>` |
+| resumeAsync | - | - | Continue download | `Promise<string>` |
+| cancelAsync | - | - | Cancel download | `Promise<void>` |
+| resetAsync | - | - | Reset file cache | `Promise<void>` |
+
+*Events*
+| Name | Value |
+| ---- | ---- |
+| update | `CacheEntryUpdateEvent` |
+
+#### `Utils`
+Static class with useful functions. [See details](https://github.com/WhidRubeld/expo-cache-manager/blob/master/src/Utils.class.ts).
 
 ### Types
 
@@ -288,6 +382,16 @@ Ready-made progress indicator component.
 }
 ```
 
+#### `ProgressIconProps`
+```ts
+{
+  status: CacheEntryStatus
+  size: number
+  color?: ColorValue
+  toggleButtons?: boolean
+}
+```
+
 #### `CacheEntryOptions`
 ```ts
 {
@@ -330,6 +434,12 @@ See [DownloadPauseState](https://docs.expo.dev/versions/latest/sdk/filesystem/#f
 | Pause | `pause` | Download stopped |
 | Complete | `complete` | File downloaded |
 
+
+## Future list
+
+- [ ] SQLite support with queries
+- [ ] More detailed documentation
+- [ ] Advanced example
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.

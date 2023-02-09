@@ -30,7 +30,7 @@ export default function VideoExample() {
       <Button
         title={
           status === CacheEntryStatus.Progress
-            ? `Downloading - ${parseInt(progress, 10)}%`
+            ? `Downloading - ${progress}%`
             : 'Download'
         }
         disabled={!ready || status !== CacheEntryStatus.Pending}

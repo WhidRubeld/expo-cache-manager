@@ -79,7 +79,7 @@ export const useCacheFile = (
 
   useEffect(() => {
     const listener = animatedProgress.addListener(({ value: v }) =>
-      setProgressValue(v)
+      setProgressValue(Math.ceil(v))
     )
 
     return () => {

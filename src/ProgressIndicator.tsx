@@ -93,7 +93,9 @@ export default function ProgressIndicator({
 
   useEffect(() => {
     handleAnimation()
-    const listener = animatedValue.addListener(({ value: v }) => setValue(v))
+    const listener = animatedValue.addListener(({ value: v }) =>
+      setValue(Math.ceil(v))
+    )
 
     return () => {
       animatedValue.removeListener(listener)

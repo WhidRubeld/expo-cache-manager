@@ -84,7 +84,7 @@ export const CachingImage = forwardRef<
       resumeAsync
     } = file
 
-    const processingHalder = useCallback(() => {
+    const processingHandler = useCallback(() => {
       switch (status) {
         case CacheEntryStatus.Pending: {
           downloadAsync()
@@ -103,7 +103,7 @@ export const CachingImage = forwardRef<
 
     useEffect(() => {
       if (ready && autoLoad && status === CacheEntryStatus.Pending) {
-        processingHalder()
+        processingHandler()
       }
     }, [ready, autoLoad, status])
 
@@ -115,7 +115,10 @@ export const CachingImage = forwardRef<
           <View style={styles.container} />
         )}
         {progress < 100 && (
-          <Pressable onPress={processingHalder} style={StyleSheet.absoluteFill}>
+          <Pressable
+            onPress={processingHandler}
+            style={StyleSheet.absoluteFill}
+          >
             <ProgressIndicator progress={progress} {...progressMergedProps}>
               <ProgressIcon
                 status={status}

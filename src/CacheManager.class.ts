@@ -41,7 +41,7 @@ export class CacheManager extends EventEmitter<'ready' | 'reset'> {
       try {
         this._ready = false
 
-        await deleteAsync(this._folder, { idempotent: true }) // TODO - delete
+        // await deleteAsync(this._folder, { idempotent: true }) // TODO - delete
         await makeDirectoryAsync(this._folder, { intermediates: true })
         await deleteAsync(this._tmpFolder, { idempotent: true })
         await makeDirectoryAsync(this._tmpFolder, { intermediates: true })
@@ -54,7 +54,8 @@ export class CacheManager extends EventEmitter<'ready' | 'reset'> {
           this._entries[uri] = new CacheEntry({
             uri,
             folder: this._folder,
-            tmpFolder: this._tmpFolder
+            tmpFolder: this._tmpFolder,
+            completed: true
           })
         })
 

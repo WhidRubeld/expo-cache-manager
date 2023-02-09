@@ -40,16 +40,15 @@ export const useCacheFile = (
   const initHandler = useCallback(() => {
     if (!m || !uri) return
     const entry = m.getEntry(uri)
-    // console.log('TEST', entry)
     setFile(entry)
-    setStatus(CacheEntryStatus.Pending)
-    setPath(null)
-    setProgress(0)
-    setAnimatedProgress(new Animated.Value(0))
-    setProgressValue(0)
+    setStatus(entry?.status ?? CacheEntryStatus.Pending)
+    setPath(entry?.path ?? null)
+    setProgress(entry?.progress ?? 0)
+    setAnimatedProgress(new Animated.Value(entry?.progress ?? 0))
+    setProgressValue(entry?.progress ?? 0)
   }, [m, uri])
 
-  const handleUpdate = useCallback((v: CacheEntryUpdateEvent) => {
+  const updateHandler = useCallback((v: CacheEntryUpdateEvent) => {
     setStatus(v.status)
     setPath(v.path)
     setProgress(v.progress)
@@ -58,11 +57,10 @@ export const useCacheFile = (
 
   useEffect(() => {
     if (!file) return
-    file.addListener('update', handleUpdate)
+    file.addListener('update', updateHandler)
 
     return () => {
-      file.removeListener('update', handleUpdate)
-      console.log(file.listenerCount('update'))
+      file.removeListener('update', updateHandler)
     }
   }, [file])
 

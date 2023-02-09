@@ -10,7 +10,7 @@ import {
 } from 'react-native'
 import { CacheEntryStatus } from './CacheEntry.class'
 import { useCacheFile } from './hooks'
-import { DownloadIcon, PauseIcon, PlayIcon } from './icons'
+import { ProgressIcon } from './ProgressIcon'
 import ProgressIndicator, { ProgressIndicatorProps } from './ProgressIndicator'
 
 export type CachingImageProps = {
@@ -19,6 +19,8 @@ export type CachingImageProps = {
   style?: StyleProp<ImageStyle>
   backgroundColor?: ColorValue
   progressDelay?: number
+  autoLoad?: boolean
+  toggleButtons?: boolean
   progressProps?: Omit<ProgressIndicatorProps, 'progress'>
 }
 
@@ -51,6 +53,8 @@ export const CachingImage = forwardRef<
       style,
       backgroundColor = '#cccccc',
       progressDelay = 2e2,
+      autoLoad = true,
+      toggleButtons = false,
       progressProps
     },
     ref
@@ -84,54 +88,21 @@ export const CachingImage = forwardRef<
           break
         }
         case CacheEntryStatus.Progress: {
-          pauseAsync()
+          if (toggleButtons) pauseAsync()
           break
         }
         case CacheEntryStatus.Pause: {
-          resumeAsync()
+          if (toggleButtons) resumeAsync()
           break
         }
       }
-    }, [status, downloadAsync, pauseAsync, resumeAsync])
+    }, [status, downloadAsync, pauseAsync, resumeAsync, toggleButtons])
 
     useEffect(() => {
-      if (ready) processingHalder()
-    }, [ready])
-
-    const renderIcon = () => {
-      const iconSize = progressMergedProps.size * 0.5
-      if (status === CacheEntryStatus.Progress) {
-        return (
-          <PauseIcon
-            width={iconSize}
-            height={iconSize}
-            fill={progressMergedProps.color}
-          />
-        )
+      if (ready && autoLoad && status === CacheEntryStatus.Pending) {
+        processingHalder()
       }
-
-      if (status === CacheEntryStatus.Pause) {
-        return (
-          <PlayIcon
-            width={iconSize}
-            height={iconSize}
-            fill={progressMergedProps.color}
-          />
-        )
-      }
-
-      if (status === CacheEntryStatus.Pending) {
-        return (
-          <DownloadIcon
-            width={iconSize}
-            height={iconSize}
-            fill={progressMergedProps.color}
-          />
-        )
-      }
-
-      return null
-    }
+    }, [ready, autoLoad, status])
 
     return (
       <View style={[styles.inner, style, { backgroundColor }]}>
@@ -143,7 +114,12 @@ export const CachingImage = forwardRef<
         {progress < 100 && (
           <Pressable onPress={processingHalder} style={StyleSheet.absoluteFill}>
             <ProgressIndicator progress={progress} {...progressMergedProps}>
-              {renderIcon()}
+              <ProgressIcon
+                status={status}
+                toggleButtons={toggleButtons}
+                color={progressMergedProps.color}
+                size={progressMergedProps.size * 0.5}
+              />
             </ProgressIndicator>
           </Pressable>
         )}

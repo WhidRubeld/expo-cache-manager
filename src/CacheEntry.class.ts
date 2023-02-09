@@ -116,8 +116,8 @@ export class CacheEntry extends EventEmitter<'update'> {
 
         this.onUpdate()
         resolve()
-      } catch (e) {
-        reject(e)
+      } catch (err) {
+        reject(err)
       }
     })
   }

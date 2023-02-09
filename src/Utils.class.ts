@@ -37,31 +37,14 @@ export class Utils {
   }
 
   static uri2path(uri: string, folder: string) {
-    const path = this.getUriPath(uri)
     const ext = this.getUriExtension(uri)
-
-    return `${folder}${
-      ext ? `${this.str2hex(path)}.${ext}` : this.str2hex(path)
-    }`
+    return `${folder}${ext ? `${this.str2hex(uri)}.${ext}` : this.str2hex(uri)}`
   }
-
-  // static uri2tmpPath(uri: string, folder: string) {
-  //   const path = this.getUriPath(uri)
-  //   const ext = this.getUriExtension(uri)
-  //   const tmpHash = new Date().getTime()
-
-  //   return `${folder}${
-  //     ext
-  //       ? `${this.str2hex(path)}-${tmpHash}.${ext}`
-  //       : `${this.str2hex(path)}-${tmpHash}`
-  //   }`
-  // }
 
   static path2uri(file: string) {
     const path = this.getUriPath(file)
-    const ext = this.getUriExtension(file)
 
-    return ext ? `${this.hex2str(path)}.${ext}` : this.hex2str(path)
+    return this.hex2str(path)
   }
 
   static progress2value(progress: DownloadProgressData) {

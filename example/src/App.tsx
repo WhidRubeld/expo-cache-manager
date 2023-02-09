@@ -1,57 +1,9 @@
-import { StyleSheet, ScrollView, Text } from 'react-native'
 import { CacheManagerProvider } from 'expo-cache-manager'
 import { useState } from 'react'
-import ImageExamples from './ImageExamples'
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-  EdgeInsets
-} from 'react-native-safe-area-context'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
-import ResetButtons from './ResetButtons'
 
-const ExamplePage = () => {
-  const insets = useSafeAreaInsets()
-  const styles = useStyles(insets)
-
-  return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>expo-cache-manager</Text>
-      <Text style={styles.subtitle}>
-        Library for handling data caching for React Native with expo-file-system
-      </Text>
-      <Text style={styles.label}>Image cache examples</Text>
-      <ImageExamples />
-      <Text style={styles.label}>Managment</Text>
-      <ResetButtons />
-    </ScrollView>
-  )
-}
-
-const useStyles = (insets: EdgeInsets) => {
-  return StyleSheet.create({
-    container: {
-      paddingTop: insets.top > 20 ? insets.top : 20,
-      paddingBottom: insets.bottom > 20 ? insets.bottom : 20,
-      paddingHorizontal: 20,
-      flexGrow: 1
-    },
-    title: {
-      textAlign: 'center',
-      fontSize: 21,
-      fontWeight: '800'
-    },
-    subtitle: {
-      textAlign: 'center',
-      marginTop: 5
-    },
-    label: {
-      marginTop: 20,
-      marginBottom: 10,
-      fontSize: 16
-    }
-  })
-}
+import Page from './Page'
 
 export default function App() {
   const [ready, setReady] = useState(false)
@@ -61,10 +13,10 @@ export default function App() {
       <StatusBar style='dark' />
       <SafeAreaProvider>
         <CacheManagerProvider
-          managers={['images']}
+          managers={['images', 'videos']}
           onReady={() => setReady(true)}
         >
-          {ready && <ExamplePage />}
+          {ready && <Page />}
         </CacheManagerProvider>
       </SafeAreaProvider>
     </>

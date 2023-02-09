@@ -1,6 +1,6 @@
 # expo-cache-manager
 
-<img src="https://github.com/WhidRubeld/expo-cache-manager/tree/master/example/result.gif" width="250px" alt="expo-cache-manager-example" border="0">
+<img src="https://github.com/WhidRubeld/expo-cache-manager/blob/master/example/result.gif" width="250px" alt="expo-cache-manager-example" border="0">
 
 [Example source code](https://github.com/WhidRubeld/expo-cache-manager/tree/master/example)
 

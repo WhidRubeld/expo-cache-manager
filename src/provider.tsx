@@ -20,17 +20,19 @@ export const CacheManagerContext = createContext<{
   resetAsync: () => Promise.reject()
 })
 
+export type CacheManagerProviderProps = {
+  managers: string[]
+  launch?: boolean
+  onReady?: () => void
+  children: ReactNode
+}
+
 export const CacheManagerProvider = ({
   managers: m,
   launch = true,
   onReady = () => {},
   children
-}: {
-  managers: string[]
-  launch?: boolean
-  onReady?: () => void
-  children: ReactNode
-}) => {
+}: CacheManagerProviderProps) => {
   const [ready, setReady] = useState(false)
   const managers = useRef(m.map((v) => new CacheManager({ folder: v }))).current
 

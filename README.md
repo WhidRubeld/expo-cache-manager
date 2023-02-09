@@ -1,6 +1,6 @@
 # expo-cache-manager
 
-<img src="https://i.ibb.co/FbdwMck/expo-cache-manager-example.gif" width="250px" alt="expo-cache-manager-example" border="0">
+<img src="https://github.com/WhidRubeld/expo-cache-manager/tree/master/example/result.gif" width="250px" alt="expo-cache-manager-example" border="0">
 
 [Example source code](https://github.com/WhidRubeld/expo-cache-manager/tree/master/example)
 
@@ -30,8 +30,6 @@ yarn add expo-file-system expo-cache-manager react-native-svg
 ```ts
 import { useState } from 'react'
 import { CacheManagerProvider, CachingImage } from 'expo-cache-manager'
-
-import Page from './Page'
 
 export default function App() {
   const [ready, setReady] = useState(false)

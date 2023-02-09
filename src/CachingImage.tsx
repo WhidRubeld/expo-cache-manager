@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react'
+import { forwardRef, useCallback, useEffect, useImperativeHandle } from 'react'
 import {
   StyleProp,
   View,
@@ -39,106 +39,120 @@ export const defaultCacheImageProgressProps: Omit<
   }
 }
 
-export const CachingImage = ({
-  manager,
-  uri,
-  style,
-  backgroundColor = '#cccccc',
-  progressDelay = 2e2,
-  progressProps
-}: CachingImageProps) => {
-  const progressMergedProps = {
-    ...defaultCacheImageProgressProps,
-    ...progressProps,
-    style: StyleSheet.flatten([
-      progressProps?.style,
-      defaultCacheImageProgressProps.style
-    ])
+export type CachingImageRef = ReturnType<typeof useCacheFile>
+export const CachingImage = forwardRef<
+  CachingImageRef | undefined,
+  CachingImageProps
+>(
+  (
+    {
+      manager,
+      uri,
+      style,
+      backgroundColor = '#cccccc',
+      progressDelay = 2e2,
+      progressProps
+    },
+    ref
+  ) => {
+    const progressMergedProps = {
+      ...defaultCacheImageProgressProps,
+      ...progressProps,
+      style: StyleSheet.flatten([
+        progressProps?.style,
+        defaultCacheImageProgressProps.style
+      ])
+    }
+
+    const file = useCacheFile(uri, manager, { delay: progressDelay })
+    useImperativeHandle(ref, () => file, [file])
+
+    const {
+      ready,
+      status,
+      path,
+      progress,
+      downloadAsync,
+      pauseAsync,
+      resumeAsync
+    } = file
+
+    const processingHalder = useCallback(() => {
+      switch (status) {
+        case CacheEntryStatus.Pending: {
+          downloadAsync()
+          break
+        }
+        case CacheEntryStatus.Progress: {
+          pauseAsync()
+          break
+        }
+        case CacheEntryStatus.Pause: {
+          resumeAsync()
+          break
+        }
+      }
+    }, [status, downloadAsync, pauseAsync, resumeAsync])
+
+    useEffect(() => {
+      if (ready) processingHalder()
+    }, [ready])
+
+    const renderIcon = () => {
+      const iconSize = progressMergedProps.size * 0.5
+      if (status === CacheEntryStatus.Progress) {
+        return (
+          <PauseIcon
+            width={iconSize}
+            height={iconSize}
+            fill={progressMergedProps.color}
+          />
+        )
+      }
+
+      if (status === CacheEntryStatus.Pause) {
+        return (
+          <PlayIcon
+            width={iconSize}
+            height={iconSize}
+            fill={progressMergedProps.color}
+          />
+        )
+      }
+
+      if (status === CacheEntryStatus.Pending) {
+        return (
+          <DownloadIcon
+            width={iconSize}
+            height={iconSize}
+            fill={progressMergedProps.color}
+          />
+        )
+      }
+
+      return null
+    }
+
+    return (
+      <View style={[styles.inner, style, { backgroundColor }]}>
+        {path && progress === 100 ? (
+          <Image source={{ uri: path }} style={styles.container} />
+        ) : (
+          <View style={styles.container} />
+        )}
+        {progress < 100 && (
+          <Pressable onPress={processingHalder} style={StyleSheet.absoluteFill}>
+            <ProgressIndicator progress={progress} {...progressMergedProps}>
+              {renderIcon()}
+            </ProgressIndicator>
+          </Pressable>
+        )}
+      </View>
+    )
   }
+)
 
-  const {
-    ready,
-    status,
-    path,
-    progress,
-    downloadAsync,
-    pauseAsync,
-    resumeAsync
-  } = useCacheFile(uri, manager, { delay: progressDelay })
-
-  const processingHalder = useCallback(() => {
-    switch (status) {
-      case CacheEntryStatus.Pending: {
-        downloadAsync()
-        break
-      }
-      case CacheEntryStatus.Progress: {
-        pauseAsync()
-        break
-      }
-      case CacheEntryStatus.Pause: {
-        resumeAsync()
-        break
-      }
-    }
-  }, [status, downloadAsync, pauseAsync, resumeAsync])
-
-  useEffect(() => {
-    if (ready) processingHalder()
-  }, [ready])
-
-  const renderIcon = () => {
-    const iconSize = progressMergedProps.size * 0.5
-    if (status === CacheEntryStatus.Progress) {
-      return (
-        <PauseIcon
-          width={iconSize}
-          height={iconSize}
-          fill={progressMergedProps.color}
-        />
-      )
-    }
-
-    if (status === CacheEntryStatus.Pause) {
-      return (
-        <PlayIcon
-          width={iconSize}
-          height={iconSize}
-          fill={progressMergedProps.color}
-        />
-      )
-    }
-
-    if (status === CacheEntryStatus.Pending) {
-      return (
-        <DownloadIcon
-          width={iconSize}
-          height={iconSize}
-          fill={progressMergedProps.color}
-        />
-      )
-    }
-
-    return null
-  }
-
-  return (
-    <View style={[style, { backgroundColor }]}>
-      {path && progress === 100 ? (
-        <Image
-          source={{ uri: path }}
-          style={{ width: '100%', height: '100%' }}
-        />
-      ) : (
-        <View style={{ width: '100%', height: '100%' }} />
-      )}
-      {progress < 100 && (
-        <Pressable onPress={processingHalder} style={StyleSheet.absoluteFill}>
-          <ProgressIndicator progress={progress} {...progressMergedProps}>
-            {renderIcon()}
-          </ProgressIndicator>
-        </Pressable>
-      )}
-    </View>
-  )
-}
+const styles = StyleSheet.create({
+  inner: { overflow: 'hidden' },
+  container: { width: '100%', height: '100%' }
+})

@@ -1,6 +1,6 @@
 {
   "name": "expo-cache-manager",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Library for handling data caching for React Native with expo-cache-manager",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -45,7 +45,6 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "expo-file-system": "^15.1.1",
-    "expo-modules-core": "~1.0.4",
     "jest": "^28.1.1",
     "prettier": "^2.0.5",
     "react": "18.1.0",

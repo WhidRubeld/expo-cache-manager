@@ -74,7 +74,7 @@ export class CacheEntry extends EventEmitter<'update'> {
       entryExpiresIn !== undefined && entryExpiresIn >= 0 ? entryExpiresIn : -1
 
     if (completed?.status) {
-      if (completed.expiresIn) {
+      if (completed.expiresIn && this._entryExpiresIn !== -1) {
         this._expiresIn = completed.expiresIn
       }
       this._status = CacheEntryStatus.Complete
@@ -291,7 +291,7 @@ export class CacheEntry extends EventEmitter<'update'> {
   }
 
   public checkExpireStatus() {
-    if (!this._expiresIn) return
+    if (!this._expiresIn || this._entryExpiresIn === -1) return
 
     const expiresIn = this._expiresIn.getTime()
     const current = Utils.getUTCDate().getTime()

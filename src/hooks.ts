@@ -40,7 +40,6 @@ export const useCacheFile = (
   const initHandler = useCallback(() => {
     if (!m || !uri) return
     const entry = m.getEntry(uri)
-    entry?.checkExpireStatus()
 
     setFile(entry)
     setStatus(entry?.status ?? CacheEntryStatus.Pending)

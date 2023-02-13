@@ -16,7 +16,7 @@ export default function App() {
           managers={[
             {
               name: 'images',
-              entryExpiresIn: 4 * 24 * 60 * 60 // 1 month (in seconds)
+              entryExpiresIn: 30 * 24 * 60 * 60 // 1 month (in seconds)
             },
             { name: 'videos' },
             'other'

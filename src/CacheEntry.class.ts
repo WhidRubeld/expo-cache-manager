@@ -16,7 +16,9 @@ export type CacheEntryOptions = {
   uri: string
   folder: string
   tmpFolder: string
+  // TODO - document
   entryExpiresIn?: number
+  // TODO - document
   completed?: {
     status: boolean
     expiresIn?: Date
@@ -73,6 +75,7 @@ export class CacheEntry extends EventEmitter<'update'> {
     this._entryExpiresIn =
       entryExpiresIn !== undefined && entryExpiresIn >= 0 ? entryExpiresIn : -1
 
+    // TODO - document
     if (completed?.status) {
       if (completed.expiresIn) {
         this._expiresIn = completed.expiresIn
@@ -96,13 +99,18 @@ export class CacheEntry extends EventEmitter<'update'> {
         await this.resetTaskAsync()
 
         this._status = CacheEntryStatus.Complete
+        // TODO - document
         if (this._entryExpiresIn !== -1) {
-          const expiresIn = new Date()
-          expiresIn.setSeconds(expiresIn.getSeconds() + this._entryExpiresIn)
+          const expiresIn = Utils.getUTCDate()
+
+          expiresIn.setUTCSeconds(
+            expiresIn.getUTCSeconds() + this._entryExpiresIn
+          )
+
           this._expiresIn = expiresIn
         }
-        this.onUpdate()
 
+        this.onUpdate()
         resolve()
       } catch (e) {
         console.warn(e)
@@ -286,9 +294,14 @@ export class CacheEntry extends EventEmitter<'update'> {
     })
   }
 
+  // TODO - document
   public checkExpireStatus() {
     if (!this._expiresIn) return
-    if (this._expiresIn.getTime() - new Date().getTime() <= 0) {
+
+    const expiresIn = this._expiresIn.getTime()
+    const current = Utils.getUTCDate().getTime()
+
+    if (expiresIn - current <= 0) {
       this.resetAsync()
     }
   }
@@ -307,6 +320,16 @@ export class CacheEntry extends EventEmitter<'update'> {
 
   get error() {
     return this._error
+  }
+
+  // TODO - document
+  get entryExpiresIn() {
+    return this._entryExpiresIn
+  }
+
+  // TODO - document
+  get expiresIn() {
+    return this._expiresIn
   }
 
   private onUpdate() {

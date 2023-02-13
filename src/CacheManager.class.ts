@@ -12,6 +12,7 @@ import { Utils } from './Utils.class'
 
 export type CacheManagerOptions = {
   folder: string
+  // TODO - document
   entryExpiresIn?: number // in seconds
 }
 
@@ -56,15 +57,16 @@ export class CacheManager extends EventEmitter<'ready' | 'reset'> {
 
         const files = await readDirectoryAsync(this._folder)
 
+        // TODO - document
         for (let file of files) {
           const localFileUri = `${this._folder}${file}`
 
-          const expiresIn = new Date()
+          const expiresIn = new Date(0)
           if (this._entryExpiresIn > -1) {
             const { modificationTime = new Date().getTime() / 1e3, size } =
               await getInfoAsync(localFileUri)
 
-            expiresIn.setSeconds(modificationTime + this._entryExpiresIn)
+            expiresIn.setUTCSeconds(modificationTime + this._entryExpiresIn)
 
             const expired =
               !this._entryExpiresIn ||
@@ -137,6 +139,7 @@ export class CacheManager extends EventEmitter<'ready' | 'reset'> {
         entryExpiresIn: this._entryExpiresIn
       })
     } else {
+      // TODO - document
       this._entries[uri]?.checkExpireStatus()
     }
 

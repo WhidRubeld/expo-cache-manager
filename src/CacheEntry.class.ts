@@ -16,9 +16,7 @@ export type CacheEntryOptions = {
   uri: string
   folder: string
   tmpFolder: string
-  // TODO - document
   entryExpiresIn?: number
-  // TODO - document
   completed?: {
     status: boolean
     expiresIn?: Date
@@ -75,7 +73,6 @@ export class CacheEntry extends EventEmitter<'update'> {
     this._entryExpiresIn =
       entryExpiresIn !== undefined && entryExpiresIn >= 0 ? entryExpiresIn : -1
 
-    // TODO - document
     if (completed?.status) {
       if (completed.expiresIn) {
         this._expiresIn = completed.expiresIn
@@ -99,7 +96,6 @@ export class CacheEntry extends EventEmitter<'update'> {
         await this.resetTaskAsync()
 
         this._status = CacheEntryStatus.Complete
-        // TODO - document
         if (this._entryExpiresIn !== -1) {
           const expiresIn = Utils.getUTCDate()
 
@@ -294,7 +290,6 @@ export class CacheEntry extends EventEmitter<'update'> {
     })
   }
 
-  // TODO - document
   public checkExpireStatus() {
     if (!this._expiresIn) return
 
@@ -322,12 +317,10 @@ export class CacheEntry extends EventEmitter<'update'> {
     return this._error
   }
 
-  // TODO - document
   get entryExpiresIn() {
     return this._entryExpiresIn
   }
 
-  // TODO - document
   get expiresIn() {
     return this._expiresIn
   }

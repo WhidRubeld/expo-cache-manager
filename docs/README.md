@@ -1,3 +1,5 @@
+expo-cache-manager / [Exports](modules.md)
+
 # expo-cache-manager
 
 <p>

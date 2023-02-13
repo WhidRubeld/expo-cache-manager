@@ -17,7 +17,8 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepack": "bob build",
     "example": "yarn --cwd example",
-    "bootstrap": "yarn example && yarn install"
+    "bootstrap": "yarn example && yarn install",
+    "docs": "typedoc src/index.ts"
   },
   "keywords": [
     "react-native",
@@ -51,6 +52,8 @@
     "react-native": "0.70.5",
     "react-native-builder-bob": "^0.20.0",
     "react-native-svg": "^13.8.0",
+    "typedoc": "^0.23.24",
+    "typedoc-plugin-markdown": "^3.14.0",
     "typescript": "^4.5.2"
   },
   "peerDependencies": {

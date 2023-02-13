@@ -52,7 +52,7 @@
 
 #### Defined in
 
-[src/CacheEntry.class.ts:26](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/CacheEntry.class.ts#L26)
+[src/CacheEntry.class.ts:26](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheEntry.class.ts#L26)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/CacheEntry.class.ts:15](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/CacheEntry.class.ts#L15)
+[src/CacheEntry.class.ts:15](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheEntry.class.ts#L15)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/CacheEntry.class.ts:37](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/CacheEntry.class.ts#L37)
+[src/CacheEntry.class.ts:37](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheEntry.class.ts#L37)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:13](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/CacheManager.class.ts#L13)
+[src/CacheManager.class.ts:13](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L13)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[src/provider.tsx:23](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/provider.tsx#L23)
+[src/provider.tsx:23](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/provider.tsx#L23)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[src/CachingImage.tsx:16](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/CachingImage.tsx#L16)
+[src/CachingImage.tsx:16](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CachingImage.tsx#L16)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[src/CachingImage.tsx:47](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/CachingImage.tsx#L47)
+[src/CachingImage.tsx:47](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CachingImage.tsx#L47)
 
 ___
 
@@ -181,7 +181,7 @@ ___
 
 #### Defined in
 
-[src/ProgressIcon.tsx:5](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/ProgressIcon.tsx#L5)
+[src/ProgressIcon.tsx:5](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/ProgressIcon.tsx#L5)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[src/ProgressIndicator.tsx:12](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/ProgressIndicator.tsx#L12)
+[src/ProgressIndicator.tsx:12](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/ProgressIndicator.tsx#L12)
 
 ## Variables
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[src/provider.tsx:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/provider.tsx#L11)
+[src/provider.tsx:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/provider.tsx#L11)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[src/CachingImage.tsx:30](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/CachingImage.tsx#L30)
+[src/CachingImage.tsx:30](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CachingImage.tsx#L30)
 
 ___
 
@@ -233,7 +233,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:18](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/CacheManager.class.ts#L18)
+[src/CacheManager.class.ts:18](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L18)
 
 ## Functions
 
@@ -253,7 +253,7 @@ ___
 
 #### Defined in
 
-[src/provider.tsx:36](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/provider.tsx#L36)
+[src/provider.tsx:36](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/provider.tsx#L36)
 
 ___
 
@@ -295,7 +295,7 @@ ___
 
 #### Defined in
 
-[src/icons.tsx:3](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/icons.tsx#L3)
+[src/icons.tsx:3](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/icons.tsx#L3)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-[src/icons.tsx:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/icons.tsx#L11)
+[src/icons.tsx:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/icons.tsx#L11)
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 #### Defined in
 
-[src/icons.tsx:19](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/icons.tsx#L19)
+[src/icons.tsx:19](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/icons.tsx#L19)
 
 ___
 
@@ -355,7 +355,7 @@ ___
 
 #### Defined in
 
-[src/ProgressIcon.tsx:12](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/ProgressIcon.tsx#L12)
+[src/ProgressIcon.tsx:12](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/ProgressIcon.tsx#L12)
 
 ___
 
@@ -376,7 +376,7 @@ ___
 
 #### Defined in
 
-[src/hooks.ts:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/hooks.ts#L11)
+[src/hooks.ts:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/hooks.ts#L11)
 
 ___
 
@@ -412,7 +412,7 @@ ___
 
 #### Defined in
 
-[src/hooks.ts:20](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/hooks.ts#L20)
+[src/hooks.ts:20](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/hooks.ts#L20)
 
 ___
 
@@ -432,4 +432,4 @@ ___
 
 #### Defined in
 
-[src/hooks.ts:15](https://github.com/WhidRubeld/expo-file-system-manager/blob/985dd7f/src/hooks.ts#L15)
+[src/hooks.ts:15](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/hooks.ts#L15)

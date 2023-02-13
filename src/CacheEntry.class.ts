@@ -16,7 +16,11 @@ export type CacheEntryOptions = {
   uri: string
   folder: string
   tmpFolder: string
-  completed?: boolean
+  entryExpiresIn?: number
+  completed?: {
+    status: boolean
+    expiresIn?: Date
+  }
 }
 
 export type CacheEntryDownloadOptions = {
@@ -42,12 +46,22 @@ export class CacheEntry extends EventEmitter<'update'> {
 
   private _status: CacheEntryStatus
   private _task?: DownloadResumable
+
+  private _expiresIn: Date | undefined
+  private _entryExpiresIn: number
+
   private _path: string
   private _tmpPath: string
   private _progress: number
   private _error?: any
 
-  constructor({ uri, folder, tmpFolder, completed }: CacheEntryOptions) {
+  constructor({
+    uri,
+    folder,
+    tmpFolder,
+    completed,
+    entryExpiresIn
+  }: CacheEntryOptions) {
     super()
 
     this.uri = uri
@@ -56,7 +70,13 @@ export class CacheEntry extends EventEmitter<'update'> {
     this._progress = 0
 
     this._status = CacheEntryStatus.Pending
-    if (completed) {
+    this._entryExpiresIn =
+      entryExpiresIn !== undefined && entryExpiresIn >= 0 ? entryExpiresIn : -1
+
+    if (completed?.status) {
+      if (completed.expiresIn) {
+        this._expiresIn = completed.expiresIn
+      }
       this._status = CacheEntryStatus.Complete
       this._progress = 100
     }
@@ -76,6 +96,11 @@ export class CacheEntry extends EventEmitter<'update'> {
         await this.resetTaskAsync()
 
         this._status = CacheEntryStatus.Complete
+        if (this._entryExpiresIn !== -1) {
+          const expiresIn = new Date()
+          expiresIn.setSeconds(expiresIn.getSeconds() + this._entryExpiresIn)
+          this._expiresIn = expiresIn
+        }
         this.onUpdate()
 
         resolve()
@@ -251,6 +276,7 @@ export class CacheEntry extends EventEmitter<'update'> {
         await deleteAsync(this._path)
         this._progress = 0
         this._status = CacheEntryStatus.Pending
+        this._expiresIn = undefined
 
         this.onUpdate()
         resolve()
@@ -258,6 +284,13 @@ export class CacheEntry extends EventEmitter<'update'> {
         reject(e)
       }
     })
+  }
+
+  public checkExpireStatus() {
+    if (!this._expiresIn) return
+    if (this._expiresIn.getTime() - new Date().getTime() <= 0) {
+      this.resetAsync()
+    }
   }
 
   get path() {

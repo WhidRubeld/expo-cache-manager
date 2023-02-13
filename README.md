@@ -444,6 +444,7 @@ See [DownloadPauseState](https://docs.expo.dev/versions/latest/sdk/filesystem/#f
 - [ ] SQLite support with queries
 - [ ] More detailed documentation
 - [ ] Advanced example
+- [ ] Add expire date
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.

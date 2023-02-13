@@ -21,20 +21,34 @@ export const CacheManagerContext = createContext<{
 })
 
 export type CacheManagerProviderProps = {
-  managers: string[]
+  managers: (
+    | string
+    | {
+        name: string
+        entryExpiresIn?: number
+      }
+  )[]
   launch?: boolean
   onReady?: () => void
   children: ReactNode
 }
 
 export const CacheManagerProvider = ({
-  managers: m,
+  managers: alias,
   launch = true,
   onReady = () => {},
   children
 }: CacheManagerProviderProps) => {
   const [ready, setReady] = useState(false)
-  const managers = useRef(m.map((v) => new CacheManager({ folder: v }))).current
+  const managers = useRef(
+    alias.map((v) => {
+      const isString = typeof v === 'string'
+      return new CacheManager({
+        folder: !isString ? v.name : v,
+        entryExpiresIn: !isString ? v.entryExpiresIn : undefined
+      })
+    })
+  ).current
 
   const initAsync = useCallback(() => {
     return Promise.all(managers.map((v) => v.initAsync())).then(() => {

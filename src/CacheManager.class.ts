@@ -12,6 +12,7 @@ import { Utils } from './Utils.class'
 
 export type CacheManagerOptions = {
   folder: string
+  entryExpiresIn?: number // in seconds
 }
 
 export const defaultCacheManagerOptions: CacheManagerOptions = {
@@ -21,6 +22,7 @@ export const defaultCacheManagerOptions: CacheManagerOptions = {
 export class CacheManager extends EventEmitter<'ready' | 'reset'> {
   private _ready: boolean
   private _entries: { [uri: string]: CacheEntry }
+  private _entryExpiresIn: number
   readonly folder: string
   private _folder: string
   private _tmpFolder: string
@@ -31,9 +33,15 @@ export class CacheManager extends EventEmitter<'ready' | 'reset'> {
 
     this._ready = false
     this._entries = {}
+
     this.folder = options.folder
     this._folder = `${cacheDirectory}${options.folder}/`
     this._tmpFolder = `${cacheDirectory}${options.folder}-tmp/`
+
+    this._entryExpiresIn =
+      options.entryExpiresIn !== undefined && options.entryExpiresIn >= 0
+        ? options.entryExpiresIn
+        : -1
   }
 
   public initAsync() {
@@ -41,7 +49,6 @@ export class CacheManager extends EventEmitter<'ready' | 'reset'> {
       try {
         this._ready = false
 
-        // await deleteAsync(this._folder, { idempotent: true }) // TODO - delete
         await makeDirectoryAsync(this._folder, { intermediates: true })
         await deleteAsync(this._tmpFolder, { idempotent: true })
         await makeDirectoryAsync(this._tmpFolder, { intermediates: true })
@@ -49,15 +56,38 @@ export class CacheManager extends EventEmitter<'ready' | 'reset'> {
 
         const files = await readDirectoryAsync(this._folder)
 
-        files.forEach((v) => {
-          const uri = Utils.path2uri(v)
+        for (let file of files) {
+          const localFileUri = `${this._folder}${file}`
+
+          const expiresIn = new Date()
+          if (this._entryExpiresIn > -1) {
+            const { modificationTime = new Date().getTime() / 1e3, size } =
+              await getInfoAsync(localFileUri)
+
+            expiresIn.setSeconds(modificationTime + this._entryExpiresIn)
+
+            const expired =
+              !this._entryExpiresIn ||
+              expiresIn.getTime() / 1e3 - modificationTime <= 0
+
+            if (!size || expired) {
+              await deleteAsync(localFileUri)
+              break
+            }
+          }
+
+          const uri = Utils.path2uri(file)
           this._entries[uri] = new CacheEntry({
             uri,
             folder: this._folder,
             tmpFolder: this._tmpFolder,
-            completed: true
+            entryExpiresIn: this._entryExpiresIn,
+            completed: {
+              status: true,
+              expiresIn: this._entryExpiresIn > -1 ? expiresIn : undefined
+            }
           })
-        })
+        }
 
         this._ready = true
 
@@ -99,13 +129,15 @@ export class CacheManager extends EventEmitter<'ready' | 'reset'> {
       return null
     }
 
-    const status = Object.keys(this._entries).includes(uri)
-    if (!status) {
+    if (!Object.keys(this._entries).includes(uri)) {
       this._entries[uri] = new CacheEntry({
         uri,
         folder: this._folder,
-        tmpFolder: this._tmpFolder
+        tmpFolder: this._tmpFolder,
+        entryExpiresIn: this._entryExpiresIn
       })
+    } else {
+      this._entries[uri]?.checkExpireStatus()
     }
 
     return this._entries[uri] ?? null
@@ -143,5 +175,9 @@ export class CacheManager extends EventEmitter<'ready' | 'reset'> {
 
   get entries() {
     return this._entries
+  }
+
+  get entryExpiresIn() {
+    return this._entryExpiresIn
   }
 }

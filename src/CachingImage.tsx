@@ -71,8 +71,8 @@ export const CachingImage = forwardRef<
       ])
     }
 
-    const file = useCacheFile(uri, manager, { delay: progressDelay })
-    useImperativeHandle(ref, () => file, [file])
+    const entry = useCacheFile(uri, manager, { delay: progressDelay })
+    useImperativeHandle(ref, () => entry, [entry])
 
     const {
       ready,
@@ -82,7 +82,7 @@ export const CachingImage = forwardRef<
       downloadAsync,
       pauseAsync,
       resumeAsync
-    } = file
+    } = entry
 
     const processingHandler = useCallback(() => {
       switch (status) {

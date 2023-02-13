@@ -13,7 +13,14 @@ export default function App() {
       <StatusBar style='dark' />
       <SafeAreaProvider>
         <CacheManagerProvider
-          managers={['images', 'videos']}
+          managers={[
+            {
+              name: 'images',
+              entryExpiresIn: 4 * 24 * 60 * 60 // 1 month (in seconds)
+            },
+            { name: 'videos' },
+            'other'
+          ]}
           onReady={() => setReady(true)}
         >
           {ready && <Page />}

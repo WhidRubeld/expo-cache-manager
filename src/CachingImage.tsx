@@ -65,7 +65,7 @@ export const CachingImage = forwardRef<
       ...options
     },
     ref
-  ): JSX.Element => {
+  ) => {
     const progressMergedProps = {
       ...defaultCacheImageProgressProps,
       ...progressProps,

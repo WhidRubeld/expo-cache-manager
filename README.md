@@ -72,6 +72,9 @@ export default function App() {
         // short naming (-1 default)
         'other'
       ]}
+      // headers={{
+      //   Authorization: `${token_type} ${access_token}`
+      // }}
       onReady={() => setReady(true)}
     >
       {ready && (

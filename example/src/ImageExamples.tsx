@@ -12,7 +12,7 @@ export default function ImageExamples() {
         uri='https://picsum.photos/3840/2160.jpg?random=first'
         manager='images'
         // headers={{
-        //   'Authorization': `${token_type} ${access_token}`
+        //   Authorization: `${token_type} ${access_token}`
         // }}
         toggleButtons
         autoLoad={false}

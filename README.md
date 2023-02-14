@@ -64,21 +64,28 @@ export default function App() {
       managers={[
         {
           name: 'images',
-          // 1 month (in seconds)
-          entryExpiresIn: 30 * 24 * 60 * 60
+          entryExpiresIn: 30 * 24 * 60 * 60 // 1 month (in seconds)
         },
-        // without expire prop (-1 default)
-        { name: 'videos' },
-        // short naming (-1 default)
-        'other'
+        { name: 'videos' }, // without expire prop (-1 default)
+        'other' // short naming (-1 default)
       ]}
-      // headers={{
-      //   Authorization: `${token_type} ${access_token}`
-      // }}
       onReady={() => setReady(true)}
     >
       {ready && (
-        <CachingImage uri={'remote-file-uri'} manager='images' />
+        <CachingImage
+          uri={'remote-file-uri'}
+          manager='images'
+          style={{ width: '100%', height: 300 }}
+          // headers={{
+          //   Authorization: `${token_type} ${access_token}`
+          // }}
+          // resizeMode="cover" // default - cover
+          // toggleButtons // enable resume/pause buttons, default - true
+          // autoLoad // default - true
+          // onProgress={(v) => console.log(`${v}%`)}
+
+          // ...and many others options
+        />
       )}
     </CacheManagerProvider>
   )

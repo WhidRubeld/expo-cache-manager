@@ -6,9 +6,10 @@ import {
   Pressable,
   ImageStyle,
   Image,
-  ColorValue
+  ColorValue,
+  ImageResizeMode
 } from 'react-native'
-import { CacheEntryStatus } from './CacheEntry.class'
+import { CacheEntryDownloadOptions, CacheEntryStatus } from './CacheEntry.class'
 import { useCacheFile } from './hooks'
 import { ProgressIcon } from './ProgressIcon'
 import ProgressIndicator, { ProgressIndicatorProps } from './ProgressIndicator'
@@ -17,6 +18,7 @@ export type CachingImageProps = {
   manager: string
   uri: string
   style?: StyleProp<ImageStyle>
+  resizeMode?: ImageResizeMode
   backgroundColor?: ColorValue
   progressDelay?: number
   autoLoad?: boolean
@@ -25,7 +27,7 @@ export type CachingImageProps = {
     ProgressIndicatorProps,
     'progress' | 'children' | 'delay'
   >
-}
+} & CacheEntryDownloadOptions
 
 export const defaultCacheImageProgressProps: Omit<
   ProgressIndicatorProps,
@@ -54,14 +56,16 @@ export const CachingImage = forwardRef<
       manager,
       uri,
       style,
+      resizeMode = 'cover',
       backgroundColor = '#cccccc',
       progressDelay = 2e2,
       autoLoad = true,
       toggleButtons = false,
-      progressProps
+      progressProps,
+      ...options
     },
     ref
-  ) => {
+  ): JSX.Element => {
     const progressMergedProps = {
       ...defaultCacheImageProgressProps,
       ...progressProps,
@@ -87,7 +91,7 @@ export const CachingImage = forwardRef<
     const processingHandler = useCallback(() => {
       switch (status) {
         case CacheEntryStatus.Pending: {
-          downloadAsync()
+          downloadAsync(options)
           break
         }
         case CacheEntryStatus.Progress: {
@@ -99,7 +103,7 @@ export const CachingImage = forwardRef<
           break
         }
       }
-    }, [status, downloadAsync, pauseAsync, resumeAsync, toggleButtons])
+    }, [status, downloadAsync, pauseAsync, resumeAsync, toggleButtons, options])
 
     useEffect(() => {
       if (ready && autoLoad && status === CacheEntryStatus.Pending) {
@@ -110,7 +114,11 @@ export const CachingImage = forwardRef<
     return (
       <View style={[styles.inner, style, { backgroundColor }]}>
         {path && progress === 100 ? (
-          <Image source={{ uri: path }} style={styles.container} />
+          <Image
+            source={{ uri: path }}
+            style={styles.container}
+            resizeMode={resizeMode}
+          />
         ) : (
           <View style={styles.container} />
         )}

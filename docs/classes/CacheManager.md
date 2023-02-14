@@ -65,7 +65,7 @@ EventEmitter&lt;&#x27;ready&#x27; \| &#x27;reset&#x27;\&gt;.constructor
 
 #### Defined in
 
-[src/CacheManager.class.ts:30](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L30)
+[src/CacheManager.class.ts:30](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L30)
 
 ## Properties
 
@@ -79,7 +79,7 @@ EventEmitter&lt;&#x27;ready&#x27; \| &#x27;reset&#x27;\&gt;.constructor
 
 #### Defined in
 
-[src/CacheManager.class.ts:24](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L24)
+[src/CacheManager.class.ts:24](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L24)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:25](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L25)
+[src/CacheManager.class.ts:25](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L25)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:27](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L27)
+[src/CacheManager.class.ts:27](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L27)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:23](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L23)
+[src/CacheManager.class.ts:23](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L23)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:28](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L28)
+[src/CacheManager.class.ts:28](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L28)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:26](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L26)
+[src/CacheManager.class.ts:26](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L26)
 
 ___
 
@@ -157,7 +157,7 @@ node_modules/eventemitter3/index.d.ts:9
 
 #### Defined in
 
-[src/CacheManager.class.ts:176](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L176)
+[src/CacheManager.class.ts:176](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L176)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:180](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L180)
+[src/CacheManager.class.ts:180](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L180)
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:172](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L172)
+[src/CacheManager.class.ts:172](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L172)
 
 ## Methods
 
@@ -291,7 +291,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:146](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L146)
+[src/CacheManager.class.ts:146](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L146)
 
 ___
 
@@ -311,7 +311,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:126](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L126)
+[src/CacheManager.class.ts:126](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L126)
 
 ___
 
@@ -325,7 +325,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:47](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L47)
+[src/CacheManager.class.ts:47](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L47)
 
 ___
 
@@ -559,4 +559,4 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:103](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheManager.class.ts#L103)
+[src/CacheManager.class.ts:103](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheManager.class.ts#L103)

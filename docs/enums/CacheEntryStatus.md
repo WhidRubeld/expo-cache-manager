@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/CacheEntry.class.ts:34](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheEntry.class.ts#L34)
+[src/CacheEntry.class.ts:34](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheEntry.class.ts#L34)
 
 ___
 
@@ -29,7 +29,7 @@ ___
 
 #### Defined in
 
-[src/CacheEntry.class.ts:33](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheEntry.class.ts#L33)
+[src/CacheEntry.class.ts:33](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheEntry.class.ts#L33)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[src/CacheEntry.class.ts:31](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheEntry.class.ts#L31)
+[src/CacheEntry.class.ts:31](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheEntry.class.ts#L31)
 
 ___
 
@@ -49,4 +49,4 @@ ___
 
 #### Defined in
 
-[src/CacheEntry.class.ts:32](https://github.com/WhidRubeld/expo-file-system-manager/blob/9ff9731/src/CacheEntry.class.ts#L32)
+[src/CacheEntry.class.ts:32](https://github.com/WhidRubeld/expo-file-system-manager/blob/293d820/src/CacheEntry.class.ts#L32)

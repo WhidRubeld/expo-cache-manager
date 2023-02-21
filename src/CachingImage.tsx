@@ -23,9 +23,8 @@ export type CachingImageProps = {
   progressDelay?: number
   autoLoad?: boolean
   toggleButtons?: boolean
-  progressProps?: Omit<
-    ProgressIndicatorProps,
-    'progress' | 'children' | 'delay'
+  progressProps?: Partial<
+    Omit<ProgressIndicatorProps, 'progress' | 'children' | 'delay'>
   >
 } & CacheEntryDownloadOptions
 

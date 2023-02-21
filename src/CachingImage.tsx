@@ -12,7 +12,7 @@ import {
 import { CacheEntryDownloadOptions, CacheEntryStatus } from './CacheEntry.class'
 import { useCacheFile } from './hooks'
 import { ProgressIcon } from './ProgressIcon'
-import ProgressIndicator, { ProgressIndicatorProps } from './ProgressIndicator'
+import { ProgressIndicator, ProgressIndicatorProps } from './ProgressIndicator'
 
 export type CachingImageProps = {
   manager: string

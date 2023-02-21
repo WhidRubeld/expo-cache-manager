@@ -19,7 +19,7 @@ export type ProgressIndicatorProps = {
   children?: ReactNode
 }
 
-export default function ProgressIndicator({
+export function ProgressIndicator({
   progress,
   size,
   width,

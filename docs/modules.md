@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[src/CacheEntry.class.ts:26](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/CacheEntry.class.ts#L26)
+[src/CacheEntry.class.ts:26](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/CacheEntry.class.ts#L26)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/CacheEntry.class.ts:15](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/CacheEntry.class.ts#L15)
+[src/CacheEntry.class.ts:15](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/CacheEntry.class.ts#L15)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[src/CacheEntry.class.ts:37](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/CacheEntry.class.ts#L37)
+[src/CacheEntry.class.ts:37](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/CacheEntry.class.ts#L37)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:13](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/CacheManager.class.ts#L13)
+[src/CacheManager.class.ts:13](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/CacheManager.class.ts#L13)
 
 ___
 
@@ -130,17 +130,17 @@ ___
 
 #### Defined in
 
-[src/provider.tsx:23](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/provider.tsx#L23)
+[src/provider.tsx:23](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/provider.tsx#L23)
 
 ___
 
 ### CachingImageProps
 
-Ƭ **CachingImageProps**: { `autoLoad?`: `boolean` ; `backgroundColor?`: `ColorValue` ; `manager`: `string` ; `progressDelay?`: `number` ; `progressProps?`: `Omit`<[`ProgressIndicatorProps`](modules.md#progressindicatorprops), ``"progress"`` \| ``"children"`` \| ``"delay"``\> ; `resizeMode?`: `ImageResizeMode` ; `style?`: `StyleProp`<`ImageStyle`\> ; `toggleButtons?`: `boolean` ; `uri`: `string`  } & [`CacheEntryDownloadOptions`](modules.md#cacheentrydownloadoptions)
+Ƭ **CachingImageProps**: { `autoLoad?`: `boolean` ; `backgroundColor?`: `ColorValue` ; `manager`: `string` ; `progressDelay?`: `number` ; `progressProps?`: `Partial`<`Omit`<[`ProgressIndicatorProps`](modules.md#progressindicatorprops), ``"progress"`` \| ``"children"`` \| ``"delay"``\>\> ; `resizeMode?`: `ImageResizeMode` ; `style?`: `StyleProp`<`ImageStyle`\> ; `toggleButtons?`: `boolean` ; `uri`: `string`  } & [`CacheEntryDownloadOptions`](modules.md#cacheentrydownloadoptions)
 
 #### Defined in
 
-[src/CachingImage.tsx:17](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/CachingImage.tsx#L17)
+[src/CachingImage.tsx:17](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/CachingImage.tsx#L17)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/CachingImage.tsx:49](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/CachingImage.tsx#L49)
+[src/CachingImage.tsx:48](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/CachingImage.tsx#L48)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 
 #### Defined in
 
-[src/ProgressIcon.tsx:5](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/ProgressIcon.tsx#L5)
+[src/ProgressIcon.tsx:5](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/ProgressIcon.tsx#L5)
 
 ___
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-[src/ProgressIndicator.tsx:12](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/ProgressIndicator.tsx#L12)
+[src/ProgressIndicator.tsx:12](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/ProgressIndicator.tsx#L12)
 
 ## Variables
 
@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-[src/provider.tsx:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/provider.tsx#L11)
+[src/provider.tsx:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/provider.tsx#L11)
 
 ___
 
@@ -211,7 +211,7 @@ ___
 
 #### Defined in
 
-[src/CachingImage.tsx:32](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/CachingImage.tsx#L32)
+[src/CachingImage.tsx:31](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/CachingImage.tsx#L31)
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 #### Defined in
 
-[src/CacheManager.class.ts:18](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/CacheManager.class.ts#L18)
+[src/CacheManager.class.ts:18](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/CacheManager.class.ts#L18)
 
 ## Functions
 
@@ -241,7 +241,7 @@ ___
 
 #### Defined in
 
-[src/provider.tsx:36](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/provider.tsx#L36)
+[src/provider.tsx:36](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/provider.tsx#L36)
 
 ___
 
@@ -255,7 +255,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `props` | { `autoLoad?`: `boolean` ; `backgroundColor?`: `ColorValue` ; `manager`: `string` ; `progressDelay?`: `number` ; `progressProps?`: `Omit`<[`ProgressIndicatorProps`](modules.md#progressindicatorprops), ``"children"`` \| ``"progress"`` \| ``"delay"``\> ; `resizeMode?`: `ImageResizeMode` ; `style?`: `StyleProp`<`ImageStyle`\> ; `toggleButtons?`: `boolean` ; `uri`: `string`  } & { `onProgress?`: (`progress`: `number`) => `void`  } & `DownloadOptions` & `RefAttributes`<`undefined` \| { `cancelAsync`: () => `Promise`<`void`\> ; `downloadAsync`: (`props?`: [`CacheEntryDownloadOptions`](modules.md#cacheentrydownloadoptions)) => `Promise`<`string`\> ; `error`: `any` ; `path`: ``null`` \| `string` ; `pauseAsync`: () => `Promise`<`DownloadPauseState`\> ; `progress`: `number` = progressValue; `ready`: `boolean` = !!file; `resetAsync`: () => `Promise`<`void`\> ; `resumeAsync`: () => `Promise`<`string`\> ; `status`: [`CacheEntryStatus`](enums/CacheEntryStatus.md)  }\> |
+| `props` | { `autoLoad?`: `boolean` ; `backgroundColor?`: `ColorValue` ; `manager`: `string` ; `progressDelay?`: `number` ; `progressProps?`: `Partial`<`Omit`<[`ProgressIndicatorProps`](modules.md#progressindicatorprops), ``"children"`` \| ``"progress"`` \| ``"delay"``\>\> ; `resizeMode?`: `ImageResizeMode` ; `style?`: `StyleProp`<`ImageStyle`\> ; `toggleButtons?`: `boolean` ; `uri`: `string`  } & { `onProgress?`: (`progress`: `number`) => `void`  } & `DownloadOptions` & `RefAttributes`<`undefined` \| { `cancelAsync`: () => `Promise`<`void`\> ; `downloadAsync`: (`props?`: [`CacheEntryDownloadOptions`](modules.md#cacheentrydownloadoptions)) => `Promise`<`string`\> ; `error`: `any` ; `path`: ``null`` \| `string` ; `pauseAsync`: () => `Promise`<`DownloadPauseState`\> ; `progress`: `number` = progressValue; `ready`: `boolean` = !!file; `resetAsync`: () => `Promise`<`void`\> ; `resumeAsync`: () => `Promise`<`string`\> ; `status`: [`CacheEntryStatus`](enums/CacheEntryStatus.md)  }\> |
 
 #### Returns
 
@@ -283,7 +283,7 @@ ___
 
 #### Defined in
 
-[src/icons.tsx:3](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/icons.tsx#L3)
+[src/icons.tsx:3](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/icons.tsx#L3)
 
 ___
 
@@ -303,7 +303,7 @@ ___
 
 #### Defined in
 
-[src/icons.tsx:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/icons.tsx#L11)
+[src/icons.tsx:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/icons.tsx#L11)
 
 ___
 
@@ -323,7 +323,7 @@ ___
 
 #### Defined in
 
-[src/icons.tsx:19](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/icons.tsx#L19)
+[src/icons.tsx:19](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/icons.tsx#L19)
 
 ___
 
@@ -343,7 +343,7 @@ ___
 
 #### Defined in
 
-[src/ProgressIcon.tsx:12](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/ProgressIcon.tsx#L12)
+[src/ProgressIcon.tsx:12](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/ProgressIcon.tsx#L12)
 
 ___
 
@@ -363,7 +363,7 @@ ___
 
 #### Defined in
 
-[src/ProgressIndicator.tsx:22](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/ProgressIndicator.tsx#L22)
+[src/ProgressIndicator.tsx:22](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/ProgressIndicator.tsx#L22)
 
 ___
 
@@ -384,7 +384,7 @@ ___
 
 #### Defined in
 
-[src/hooks.ts:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/hooks.ts#L11)
+[src/hooks.ts:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/hooks.ts#L11)
 
 ___
 
@@ -420,7 +420,7 @@ ___
 
 #### Defined in
 
-[src/hooks.ts:20](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/hooks.ts#L20)
+[src/hooks.ts:20](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/hooks.ts#L20)
 
 ___
 
@@ -440,4 +440,4 @@ ___
 
 #### Defined in
 
-[src/hooks.ts:15](https://github.com/WhidRubeld/expo-file-system-manager/blob/31da69e/src/hooks.ts#L15)
+[src/hooks.ts:15](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/hooks.ts#L15)

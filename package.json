@@ -1,6 +1,6 @@
 {
   "name": "expo-cache-manager",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Library for handling data caching for React Native with expo-cache-manager",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

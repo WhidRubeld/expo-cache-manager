@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[src/Utils.class.ts:56](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/Utils.class.ts#L56)
+[src/Utils.class.ts:56](https://github.com/WhidRubeld/expo-file-system-manager/blob/e03872b/src/Utils.class.ts#L56)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/Utils.class.ts:26](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/Utils.class.ts#L26)
+[src/Utils.class.ts:26](https://github.com/WhidRubeld/expo-file-system-manager/blob/e03872b/src/Utils.class.ts#L26)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/Utils.class.ts:19](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/Utils.class.ts#L19)
+[src/Utils.class.ts:19](https://github.com/WhidRubeld/expo-file-system-manager/blob/e03872b/src/Utils.class.ts#L19)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[src/Utils.class.ts:34](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/Utils.class.ts#L34)
+[src/Utils.class.ts:34](https://github.com/WhidRubeld/expo-file-system-manager/blob/e03872b/src/Utils.class.ts#L34)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[src/Utils.class.ts:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/Utils.class.ts#L11)
+[src/Utils.class.ts:11](https://github.com/WhidRubeld/expo-file-system-manager/blob/e03872b/src/Utils.class.ts#L11)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[src/Utils.class.ts:44](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/Utils.class.ts#L44)
+[src/Utils.class.ts:44](https://github.com/WhidRubeld/expo-file-system-manager/blob/e03872b/src/Utils.class.ts#L44)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[src/Utils.class.ts:50](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/Utils.class.ts#L50)
+[src/Utils.class.ts:50](https://github.com/WhidRubeld/expo-file-system-manager/blob/e03872b/src/Utils.class.ts#L50)
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/Utils.class.ts:4](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/Utils.class.ts#L4)
+[src/Utils.class.ts:4](https://github.com/WhidRubeld/expo-file-system-manager/blob/e03872b/src/Utils.class.ts#L4)
 
 ___
 
@@ -199,4 +199,4 @@ ___
 
 #### Defined in
 
-[src/Utils.class.ts:39](https://github.com/WhidRubeld/expo-file-system-manager/blob/ca45818/src/Utils.class.ts#L39)
+[src/Utils.class.ts:39](https://github.com/WhidRubeld/expo-file-system-manager/blob/e03872b/src/Utils.class.ts#L39)

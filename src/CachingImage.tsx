@@ -40,8 +40,7 @@ export const defaultCacheImageProgressProps: Omit<
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: 'auto',
-    marginBottom: 'auto',
-    padding: 20
+    marginBottom: 'auto'
   }
 }
 

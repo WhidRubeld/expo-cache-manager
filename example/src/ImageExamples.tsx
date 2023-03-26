@@ -9,20 +9,27 @@ export default function ImageExamples() {
     <View style={styles.container}>
       <CachingImage
         ref={imageRef}
-        uri='https://picsum.photos/3840/2160.jpg?random=first'
+        uri='https://fastly.picsum.photos/id/1082/3840/2160.jpg?hmac=hTBlkXuQRidScs600ierfaeLTfpPzGX74sRpXgF5jes'
+        placeholder='L4E3C*M{%M9F00xu4n-;00Rj~qRj'
         manager='images'
+        transition={2e2}
+        contentFit='cover'
+        contentPosition='center'
+        progressProps={{ color: '#ffffff' }}
         // headers={{
         //   Authorization: `${token_type} ${access_token}`
         // }}
-        toggleButtons
-        autoLoad={false}
+        automatic={false}
         style={styles.image}
       />
       <View style={styles.spacer} />
       <CachingImage
-        uri='https://picsum.photos/3840/2160.jpg?random=second'
+        uri='https://fastly.picsum.photos/id/699/3840/2160.jpg?hmac=Ae7vOqy41F8jTnz636NvCTD7CWDBDwwoNwRbGeyHrns'
+        placeholder='LPF5{5M{o3afOunhoeay~Uobxsoe'
         manager='images'
+        transition={2e2}
         style={styles.image}
+        progressProps={{ color: '#ffffff' }}
       />
     </View>
   )

@@ -1,6 +1,6 @@
 {
   "name": "expo-cache-manager",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "description": "Library for handling data caching for React Native with expo-cache-manager",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -18,7 +18,7 @@
     "prepack": "bob build",
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn install",
-    "docs": "typedoc src/index.ts"
+    "docs": "typedoc"
   },
   "keywords": [
     "react-native",
@@ -45,7 +45,8 @@
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "expo-file-system": "^15.1.1",
+    "expo-file-system": "~15.2.2",
+    "expo-image": "^1.0.0",
     "jest": "^28.1.1",
     "prettier": "^2.0.5",
     "react": "18.1.0",
@@ -53,11 +54,12 @@
     "react-native-builder-bob": "^0.20.0",
     "react-native-svg": "^13.8.0",
     "typedoc": "^0.23.24",
-    "typedoc-plugin-markdown": "^3.14.0",
+    "typedoc-theme-hierarchy": "^1.3.5",
     "typescript": "^4.5.2"
   },
   "peerDependencies": {
     "expo-file-system": "*",
+    "expo-image": "*",
     "react": "*",
     "react-native": "*",
     "react-native-svg": "*"

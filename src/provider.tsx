@@ -40,6 +40,7 @@ export const CacheManagerProvider = ({
   children
 }: CacheManagerProviderProps) => {
   const [ready, setReady] = useState(false)
+
   const managers = useRef(
     alias.map((v) => {
       const isString = typeof v === 'string'
@@ -69,7 +70,7 @@ export const CacheManagerProvider = ({
     <CacheManagerContext.Provider
       value={{ ready, managers, initAsync, resetAsync }}
     >
-      {children}
+      {ready ? children : undefined}
     </CacheManagerContext.Provider>
   )
 }

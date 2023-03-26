@@ -7,5 +7,4 @@ export * from './hooks'
 
 export * from './icons'
 export * from './ProgressIndicator'
-export * from './ProgressIcon'
 export * from './CachingImage'

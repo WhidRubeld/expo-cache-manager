@@ -16,7 +16,7 @@ Distinctive features:
 - Quick start and flexible setting;
 - Support file expiration;
 - Support download progress;
-- Image component based on (expo-image)[https://docs.expo.dev/versions/unversioned/sdk/image] library
+- Image component based on [expo-image](https://docs.expo.dev/versions/unversioned/sdk/image) library
 - Many [supported image formants](https://docs.expo.dev/versions/unversioned/sdk/image/#supported-image-formats)
 - [BlurHash](https://blurha.sh) support
 - A lot of action functions for manipulating the file and the cache in general;

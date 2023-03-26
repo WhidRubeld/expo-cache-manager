@@ -18,7 +18,7 @@
     "prepack": "bob build",
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn install",
-    "typedoc": "typedoc"
+    "docs": "typedoc"
   },
   "keywords": [
     "react-native",

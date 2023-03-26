@@ -12,14 +12,12 @@ export default function ImageExamples() {
         uri='https://fastly.picsum.photos/id/1082/3840/2160.jpg?hmac=hTBlkXuQRidScs600ierfaeLTfpPzGX74sRpXgF5jes'
         placeholder='L4E3C*M{%M9F00xu4n-;00Rj~qRj'
         manager='images'
+        automatic={false}
         transition={2e2}
-        contentFit='cover'
-        contentPosition='center'
         progressProps={{ color: '#ffffff' }}
         // headers={{
         //   Authorization: `${token_type} ${access_token}`
         // }}
-        automatic={false}
         style={styles.image}
       />
       <View style={styles.spacer} />

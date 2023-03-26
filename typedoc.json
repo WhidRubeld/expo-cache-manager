@@ -1,9 +1,0 @@
-{
-  "entryPoints": ["src/index.ts"],
-  "entryPointStrategy": "Expand",
-  "out": "docs",
-  "plugin": ["typedoc-theme-hierarchy"],
-  "theme": "hierarchy",
-  "tsconfig": "./tsconfig.json",
-  "name": "Expo Cache Manager"
-}

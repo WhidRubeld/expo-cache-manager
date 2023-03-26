@@ -1,0 +1,610 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>CacheManager | Expo Cache Manager</title><meta name="description" content="Documentation for Expo Cache Manager"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script async src="../assets/search.js" id="search-script"></script><link rel="stylesheet" href="../assets/custom.css"/></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base="..">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="../index.html" class="title">Expo Cache Manager</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-8 col-content">
+<div class="tsd-page-title">
+<ul class="tsd-breadcrumb">
+<li><a href="../modules.html">Expo Cache Manager</a></li>
+<li><a href="CacheManager.html">CacheManager</a></li></ul>
+<h1>Class CacheManager</h1></div>
+<section class="tsd-panel tsd-hierarchy">
+<h4>Hierarchy</h4>
+<ul class="tsd-hierarchy">
+<li><span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span><span class="tsd-signature-symbol">&gt;</span>
+<ul class="tsd-hierarchy">
+<li><span class="target">CacheManager</span></li></ul></li></ul></section><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L22">src/CacheManager.class.ts:22</a></li></ul></aside>
+<section class="tsd-panel-group tsd-index-group">
+<section class="tsd-panel tsd-index-panel">
+<details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
+<h5 class="tsd-index-heading uppercase" role="button" aria-expanded="false" tabIndex=0><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.5 5.50969L8 11.6609L14.5 5.50969L12.5466 3.66086L8 7.96494L3.45341 3.66086L1.5 5.50969Z" fill="var(--color-text)"></path></svg> Index</h5></summary>
+<div class="tsd-accordion-details">
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Constructors</h3>
+<div class="tsd-index-list"><a href="CacheManager.html#constructor" class="tsd-index-link tsd-kind-constructor tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#4D7FFF" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-512-path"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)" id="icon-512-text"></path></svg><span>constructor</span></a>
+</div></section>
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Properties</h3>
+<div class="tsd-index-list"><a href="CacheManager.html#_entries" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-private"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-1024-path"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)" id="icon-1024-text"></path></svg><span>_entries</span></a>
+<a href="CacheManager.html#_entryExpiresIn" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-private"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>_entry<wbr/>Expires<wbr/>In</span></a>
+<a href="CacheManager.html#_folder" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-private"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>_folder</span></a>
+<a href="CacheManager.html#_ready" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-private"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>_ready</span></a>
+<a href="CacheManager.html#_tmpFolder" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-private"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>_tmp<wbr/>Folder</span></a>
+<a href="CacheManager.html#folder" class="tsd-index-link tsd-kind-property tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>folder</span></a>
+<a href="CacheManager.html#prefixed" class="tsd-index-link tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>prefixed</span></a>
+</div></section>
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Accessors</h3>
+<div class="tsd-index-list"><a href="CacheManager.html#entries" class="tsd-index-link tsd-kind-accessor tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF4D4D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-262144-path"></rect><path d="M8.85 16L11.13 7.24H12.582L14.85 16H13.758L13.182 13.672H10.53L9.954 16H8.85ZM10.746 12.76H12.954L12.282 10.06C12.154 9.548 12.054 9.12 11.982 8.776C11.91 8.432 11.866 8.208 11.85 8.104C11.834 8.208 11.79 8.432 11.718 8.776C11.646 9.12 11.546 9.544 11.418 10.048L10.746 12.76Z" fill="var(--color-text)" id="icon-262144-text"></path></svg><span>entries</span></a>
+<a href="CacheManager.html#entryExpiresIn" class="tsd-index-link tsd-kind-accessor tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg><span>entry<wbr/>Expires<wbr/>In</span></a>
+<a href="CacheManager.html#ready" class="tsd-index-link tsd-kind-accessor tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-262144-path"></use><use href="#icon-262144-text"></use></svg><span>ready</span></a>
+</div></section>
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Methods</h3>
+<div class="tsd-index-list"><a href="CacheManager.html#addListener" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-2048-path"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)" id="icon-2048-text"></path></svg><span>add<wbr/>Listener</span></a>
+<a href="CacheManager.html#emit" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>emit</span></a>
+<a href="CacheManager.html#eventNames" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>event<wbr/>Names</span></a>
+<a href="CacheManager.html#getCacheSizeAsync" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Cache<wbr/>Size<wbr/>Async</span></a>
+<a href="CacheManager.html#getEntry" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>get<wbr/>Entry</span></a>
+<a href="CacheManager.html#initAsync" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>init<wbr/>Async</span></a>
+<a href="CacheManager.html#listenerCount" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>listener<wbr/>Count</span></a>
+<a href="CacheManager.html#listeners" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>listeners</span></a>
+<a href="CacheManager.html#off" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>off</span></a>
+<a href="CacheManager.html#on" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>on</span></a>
+<a href="CacheManager.html#once" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>once</span></a>
+<a href="CacheManager.html#removeAllListeners" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>remove<wbr/>All<wbr/>Listeners</span></a>
+<a href="CacheManager.html#removeListener" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>remove<wbr/>Listener</span></a>
+<a href="CacheManager.html#resetAsync" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>reset<wbr/>Async</span></a>
+</div></section></div></details></section></section>
+<section class="tsd-panel-group tsd-member-group">
+<h2>Constructors</h2>
+<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class"><a id="constructor" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>constructor</span><a href="#constructor" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="constructor.new_CacheManager">new <wbr/>Cache<wbr/>Manager<span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/CacheManagerOptions.html" class="tsd-signature-type" data-tsd-kind="Type alias">CacheManagerOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a><a href="#constructor.new_CacheManager" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> opts: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../types/CacheManagerOptions.html" class="tsd-signature-type" data-tsd-kind="Type alias">CacheManagerOptions</a><span class="tsd-signature-symbol">&gt;</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a></h4><aside class="tsd-sources">
+<p>Overrides EventEmitter&lt;&#39;ready&#39; | &#39;reset&#39;&gt;.constructor</p>
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L30">src/CacheManager.class.ts:30</a></li></ul></aside></li></ul></section></section>
+<section class="tsd-panel-group tsd-member-group">
+<h2>Properties</h2>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="_entries" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_entries</span><a href="#_entries" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">_entries<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span><br/><span>    </span>[uri: <span class="tsd-signature-type">string</span>]<span class="tsd-signature-symbol">: </span><a href="CacheEntry.html" class="tsd-signature-type" data-tsd-kind="Class">CacheEntry</a><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></div>
+<div class="tsd-type-declaration">
+<h4>Type declaration</h4>
+<ul class="tsd-parameters">
+<li class="tsd-parameter-index-signature">
+<h5><span class="tsd-signature-symbol">[</span>uri: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="CacheEntry.html" class="tsd-signature-type" data-tsd-kind="Class">CacheEntry</a></h5></li></ul></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L24">src/CacheManager.class.ts:24</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="_entryExpiresIn" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_entry<wbr/>Expires<wbr/>In</span><a href="#_entryExpiresIn" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">_entry<wbr/>Expires<wbr/>In<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L25">src/CacheManager.class.ts:25</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="_folder" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_folder</span><a href="#_folder" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">_folder<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L27">src/CacheManager.class.ts:27</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="_ready" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_ready</span><a href="#_ready" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">_ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L23">src/CacheManager.class.ts:23</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="_tmpFolder" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_tmp<wbr/>Folder</span><a href="#_tmpFolder" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">_tmp<wbr/>Folder<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L28">src/CacheManager.class.ts:28</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class"><a id="folder" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>folder</span><a href="#folder" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">folder<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L26">src/CacheManager.class.ts:26</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="prefixed" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>prefixed</span><a href="#prefixed" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">prefixed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div><aside class="tsd-sources">
+<p>Inherited from EventEmitter.prefixed</p>
+<ul>
+<li>Defined in node_modules/eventemitter3/index.d.ts:9</li></ul></aside></section></section>
+<section class="tsd-panel-group tsd-member-group">
+<h2>Accessors</h2>
+<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class"><a id="entries" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>entries</span><a href="#entries" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+<li class="tsd-signature" id="entries.entries-1"><span class="tsd-signature-symbol">get</span> entries<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span>[uri: <span class="tsd-signature-type">string</span>]<span class="tsd-signature-symbol">: </span><a href="CacheEntry.html" class="tsd-signature-type" data-tsd-kind="Class">CacheEntry</a><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span><br/><span>    </span>[uri: <span class="tsd-signature-type">string</span>]<span class="tsd-signature-symbol">: </span><a href="CacheEntry.html" class="tsd-signature-type" data-tsd-kind="Class">CacheEntry</a><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></h4>
+<ul class="tsd-parameters">
+<li class="tsd-parameter-index-signature">
+<h5><span class="tsd-signature-symbol">[</span>uri: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="CacheEntry.html" class="tsd-signature-type" data-tsd-kind="Class">CacheEntry</a></h5></li></ul><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L177">src/CacheManager.class.ts:177</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class"><a id="entryExpiresIn" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>entry<wbr/>Expires<wbr/>In</span><a href="#entryExpiresIn" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+<li class="tsd-signature" id="entryExpiresIn.entryExpiresIn-1"><span class="tsd-signature-symbol">get</span> entryExpiresIn<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L181">src/CacheManager.class.ts:181</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class"><a id="ready" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>ready</span><a href="#ready" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+<li class="tsd-signature" id="ready.ready-1"><span class="tsd-signature-symbol">get</span> ready<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L173">src/CacheManager.class.ts:173</a></li></ul></aside></li></ul></section></section>
+<section class="tsd-panel-group tsd-member-group">
+<h2>Methods</h2>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="addListener" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>add<wbr/>Listener</span><a href="#addListener" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="addListener.addListener-1">add<wbr/>Listener<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span>, context<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a><a href="#addListener.addListener-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<section class="tsd-panel tsd-type-parameters">
+<h4>Type Parameters</h4>
+<ul class="tsd-type-parameters">
+<li>
+<h4>T<span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span></h4></li></ul></section>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>event: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h5></li>
+<li>
+<h5>fn: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></h5>
+<ul class="tsd-parameters">
+<li class="tsd-parameter-signature">
+<ul class="tsd-signatures tsd-kind-type-literal tsd-is-external">
+<li class="tsd-signature"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> context: <span class="tsd-signature-type">any</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a></h4><aside class="tsd-sources">
+<p>Inherited from EventEmitter.addListener</p>
+<ul>
+<li>Defined in node_modules/eventemitter3/index.d.ts:45</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="emit" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>emit</span><a href="#emit" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="emit.emit-1">emit<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#emit.emit-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Calls each of the listeners registered for a given event.</p>
+</div>
+<section class="tsd-panel tsd-type-parameters">
+<h4>Type Parameters</h4>
+<ul class="tsd-type-parameters">
+<li>
+<h4>T<span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span></h4></li></ul></section>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>event: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h5></li>
+<li>
+<h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
+<p>Inherited from EventEmitter.emit</p>
+<ul>
+<li>Defined in node_modules/eventemitter3/index.d.ts:32</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="eventNames" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>event<wbr/>Names</span><a href="#eventNames" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="eventNames.eventNames-1">event<wbr/>Names<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><a href="#eventNames.eventNames-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Return an array listing the events for which the emitter has registered
+listeners.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<p>Inherited from EventEmitter.eventNames</p>
+<ul>
+<li>Defined in node_modules/eventemitter3/index.d.ts:15</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getCacheSizeAsync" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Cache<wbr/>Size<wbr/>Async</span><a href="#getCacheSizeAsync" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getCacheSizeAsync.getCacheSizeAsync-1">get<wbr/>Cache<wbr/>Size<wbr/>Async<span class="tsd-signature-symbol">(</span>withTmp<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><a href="#getCacheSizeAsync.getCacheSizeAsync-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>withTmp: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L147">src/CacheManager.class.ts:147</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getEntry" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Entry</span><a href="#getEntry" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getEntry.getEntry-1">get<wbr/>Entry<span class="tsd-signature-symbol">(</span>uri<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="CacheEntry.html" class="tsd-signature-type" data-tsd-kind="Class">CacheEntry</a><a href="#getEntry.getEntry-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>uri: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="CacheEntry.html" class="tsd-signature-type" data-tsd-kind="Class">CacheEntry</a></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L127">src/CacheManager.class.ts:127</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="initAsync" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>init<wbr/>Async</span><a href="#initAsync" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="initAsync.initAsync-1">init<wbr/>Async<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#initAsync.initAsync-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L47">src/CacheManager.class.ts:47</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="listenerCount" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>listener<wbr/>Count</span><a href="#listenerCount" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="listenerCount.listenerCount-1">listener<wbr/>Count<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><a href="#listenerCount.listenerCount-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Return the number of listeners listening to a given event.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>event: <span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
+<p>Inherited from EventEmitter.listenerCount</p>
+<ul>
+<li>Defined in node_modules/eventemitter3/index.d.ts:27</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="listeners" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>listeners</span><a href="#listeners" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="listeners.listeners-1">listeners<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><a href="#listeners.listeners-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Return the listeners registered for a given event.</p>
+</div>
+<section class="tsd-panel tsd-type-parameters">
+<h4>Type Parameters</h4>
+<ul class="tsd-type-parameters">
+<li>
+<h4>T<span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span></h4></li></ul></section>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>event: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<p>Inherited from EventEmitter.listeners</p>
+<ul>
+<li>Defined in node_modules/eventemitter3/index.d.ts:20</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="off" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>off</span><a href="#off" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="off.off-1">off<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span>, fn<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span>, context<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, once<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a><a href="#off.off-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<section class="tsd-panel tsd-type-parameters">
+<h4>Type Parameters</h4>
+<ul class="tsd-type-parameters">
+<li>
+<h4>T<span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span></h4></li></ul></section>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>event: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h5></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> fn: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></h5>
+<ul class="tsd-parameters">
+<li class="tsd-parameter-signature">
+<ul class="tsd-signatures tsd-kind-type-literal tsd-is-external">
+<li class="tsd-signature"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> context: <span class="tsd-signature-type">any</span></h5></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> once: <span class="tsd-signature-type">boolean</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a></h4><aside class="tsd-sources">
+<p>Inherited from EventEmitter.off</p>
+<ul>
+<li>Defined in node_modules/eventemitter3/index.d.ts:69</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="on" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>on</span><a href="#on" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="on.on-1">on<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span>, context<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a><a href="#on.on-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Add a listener for a given event.</p>
+</div>
+<section class="tsd-panel tsd-type-parameters">
+<h4>Type Parameters</h4>
+<ul class="tsd-type-parameters">
+<li>
+<h4>T<span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span></h4></li></ul></section>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>event: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h5></li>
+<li>
+<h5>fn: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></h5>
+<ul class="tsd-parameters">
+<li class="tsd-parameter-signature">
+<ul class="tsd-signatures tsd-kind-type-literal tsd-is-external">
+<li class="tsd-signature"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> context: <span class="tsd-signature-type">any</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a></h4><aside class="tsd-sources">
+<p>Inherited from EventEmitter.on</p>
+<ul>
+<li>Defined in node_modules/eventemitter3/index.d.ts:40</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="once" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>once</span><a href="#once" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="once.once-1">once<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span>, fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span>, context<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a><a href="#once.once-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Add a one-time listener for a given event.</p>
+</div>
+<section class="tsd-panel tsd-type-parameters">
+<h4>Type Parameters</h4>
+<ul class="tsd-type-parameters">
+<li>
+<h4>T<span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span></h4></li></ul></section>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>event: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h5></li>
+<li>
+<h5>fn: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></h5>
+<ul class="tsd-parameters">
+<li class="tsd-parameter-signature">
+<ul class="tsd-signatures tsd-kind-type-literal tsd-is-external">
+<li class="tsd-signature"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> context: <span class="tsd-signature-type">any</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a></h4><aside class="tsd-sources">
+<p>Inherited from EventEmitter.once</p>
+<ul>
+<li>Defined in node_modules/eventemitter3/index.d.ts:54</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="removeAllListeners" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>remove<wbr/>All<wbr/>Listeners</span><a href="#removeAllListeners" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="removeAllListeners.removeAllListeners-1">remove<wbr/>All<wbr/>Listeners<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a><a href="#removeAllListeners.removeAllListeners-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Remove all listeners, or those of the specified event.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> event: <span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a></h4><aside class="tsd-sources">
+<p>Inherited from EventEmitter.removeAllListeners</p>
+<ul>
+<li>Defined in node_modules/eventemitter3/index.d.ts:79</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a id="removeListener" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>remove<wbr/>Listener</span><a href="#removeListener" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="removeListener.removeListener-1">remove<wbr/>Listener<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span>, fn<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span>, context<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, once<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a><a href="#removeListener.removeListener-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Remove the listeners of a given event.</p>
+</div>
+<section class="tsd-panel tsd-type-parameters">
+<h4>Type Parameters</h4>
+<ul class="tsd-type-parameters">
+<li>
+<h4>T<span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">&quot;ready&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;reset&quot;</span></h4></li></ul></section>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>event: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h5></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> fn: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></h5>
+<ul class="tsd-parameters">
+<li class="tsd-parameter-signature">
+<ul class="tsd-signatures tsd-kind-type-literal tsd-is-external">
+<li class="tsd-signature"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> context: <span class="tsd-signature-type">any</span></h5></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> once: <span class="tsd-signature-type">boolean</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="CacheManager.html" class="tsd-signature-type" data-tsd-kind="Class">CacheManager</a></h4><aside class="tsd-sources">
+<p>Inherited from EventEmitter.removeListener</p>
+<ul>
+<li>Defined in node_modules/eventemitter3/index.d.ts:63</li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="resetAsync" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>reset<wbr/>Async</span><a href="#resetAsync" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="resetAsync.resetAsync-1">reset<wbr/>Async<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#resetAsync.resetAsync-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/WhidRubeld/expo-cache-manager/blob/61036f9/src/CacheManager.class.ts#L104">src/CacheManager.class.ts:104</a></li></ul></aside></li></ul></section></section></div>
+<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+<div class="tree">
+<div class="tree-config"><button class="tree-config__button tree-config__button--expand js-tree-expand" title="Expand All"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 490.72 490.72" fill="currentColor"><path d="M480.027,288.027H10.693c-5.867,0-10.667,4.8-10.667,10.667c0,5.867,4.8,10.667,10.667,10.667h213.333v144.96l-45.76-45.76c-4.267-4.053-10.987-3.947-15.04,0.213c-3.947,4.16-3.947,10.667,0,14.827l64,64c4.16,4.16,10.88,4.16,15.04,0l64-64c4.053-4.267,3.947-10.987-0.213-15.04c-4.16-3.947-10.667-3.947-14.827,0l-45.867,45.76V309.36h234.667c5.867,0,10.667-4.8,10.667-10.667C490.693,292.827,485.893,288.027,480.027,288.027z"></path><path d="M10.693,224.027h469.333c5.867,0,10.667-4.8,10.667-10.667c0-5.867-4.8-10.667-10.667-10.667H245.36V36.4l45.76,45.76c4.267,4.053,10.987,3.947,15.04-0.213c3.947-4.16,3.947-10.667,0-14.827l-64-64c-4.16-4.16-10.88-4.16-15.04,0l-64,64c-4.053,4.267-3.947,10.987,0.213,15.04c4.16,3.947,10.667,3.947,14.827,0l45.867-45.76v166.293H10.693c-5.867,0-10.667,4.8-10.667,10.667C0.027,219.227,4.827,224.027,10.693,224.027z"></path></svg></button><button class="tree-config__button tree-config__button--collapse js-tree-collapse" title="Collapse All"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793z"></path></svg></button><button class="tree-config__button tree-config__button--target js-tree-target" title="Scroll to current file"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M13 4.069V2h-2v2.069A8.008 8.008 0 0 0 4.069 11H2v2h2.069A8.007 8.007 0 0 0 11 19.931V22h2v-2.069A8.007 8.007 0 0 0 19.931 13H22v-2h-2.069A8.008 8.008 0 0 0 13 4.069zM12 18c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z"></path></svg></button></div>
+<div class="tree-content">
+<ul class="js-category-list category" data-id="root">
+<li><span class="js-category-title category__title" data-id="root-src">
+<div class="category__folder" data-id="root-src"></div>src</span>
+<ul class="js-category-list category" data-id="root-src">
+<li><a class="category__link js-category-link category__link--ts" href="../enums/CacheEntryStatus.html" data-id="/enums/CacheEntryStatus.html">CacheEntry.class.ts</a>
+<ul>
+<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a class="category__link tsd-kind-icon js-category-link" href="../enums/CacheEntryStatus.html#Complete" data-id="/enums/CacheEntryStatus.html#Complete">Complete</a></li>
+<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a class="category__link tsd-kind-icon js-category-link" href="../enums/CacheEntryStatus.html#Pause" data-id="/enums/CacheEntryStatus.html#Pause">Pause</a></li>
+<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a class="category__link tsd-kind-icon js-category-link" href="../enums/CacheEntryStatus.html#Pending" data-id="/enums/CacheEntryStatus.html#Pending">Pending</a></li>
+<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a class="category__link tsd-kind-icon js-category-link" href="../enums/CacheEntryStatus.html#Progress" data-id="/enums/CacheEntryStatus.html#Progress">Progress</a></li></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../enums/CachingImageButtons.html" data-id="/enums/CachingImageButtons.html">CachingImage.tsx</a>
+<ul>
+<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a class="category__link tsd-kind-icon js-category-link" href="../enums/CachingImageButtons.html#Download" data-id="/enums/CachingImageButtons.html#Download">Download</a></li>
+<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a class="category__link tsd-kind-icon js-category-link" href="../enums/CachingImageButtons.html#Pause" data-id="/enums/CachingImageButtons.html#Pause">Pause</a></li>
+<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a class="category__link tsd-kind-icon js-category-link" href="../enums/CachingImageButtons.html#Resume" data-id="/enums/CachingImageButtons.html#Resume">Resume</a></li></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="CacheEntry.html" data-id="/classes/CacheEntry.html">CacheEntry.class.ts</a>
+<ul>
+<li class="tsd-kind-constructor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#constructor" data-id="/classes/CacheEntry.html#constructor">constructor</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#_entryExpiresIn" data-id="/classes/CacheEntry.html#_entryExpiresIn">_entryExpiresIn</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#_error" data-id="/classes/CacheEntry.html#_error">_error</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#_expiresIn" data-id="/classes/CacheEntry.html#_expiresIn">_expiresIn</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#_path" data-id="/classes/CacheEntry.html#_path">_path</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#_progress" data-id="/classes/CacheEntry.html#_progress">_progress</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#_status" data-id="/classes/CacheEntry.html#_status">_status</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#_task" data-id="/classes/CacheEntry.html#_task">_task</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#_tmpPath" data-id="/classes/CacheEntry.html#_tmpPath">_tmpPath</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#uri" data-id="/classes/CacheEntry.html#uri">uri</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#prefixed" data-id="/classes/CacheEntry.html#prefixed">prefixed</a></li>
+<li class="tsd-kind-accessor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#entryExpiresIn" data-id="/classes/CacheEntry.html#entryExpiresIn">entryExpiresIn</a></li>
+<li class="tsd-kind-accessor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#error" data-id="/classes/CacheEntry.html#error">error</a></li>
+<li class="tsd-kind-accessor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#expiresIn" data-id="/classes/CacheEntry.html#expiresIn">expiresIn</a></li>
+<li class="tsd-kind-accessor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#path" data-id="/classes/CacheEntry.html#path">path</a></li>
+<li class="tsd-kind-accessor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#progress" data-id="/classes/CacheEntry.html#progress">progress</a></li>
+<li class="tsd-kind-accessor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#status" data-id="/classes/CacheEntry.html#status">status</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#addListener" data-id="/classes/CacheEntry.html#addListener">addListener</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#cancelAsync" data-id="/classes/CacheEntry.html#cancelAsync">cancelAsync</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#checkExpireStatus" data-id="/classes/CacheEntry.html#checkExpireStatus">checkExpireStatus</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#downloadAsync" data-id="/classes/CacheEntry.html#downloadAsync">downloadAsync</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#emit" data-id="/classes/CacheEntry.html#emit">emit</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#eventNames" data-id="/classes/CacheEntry.html#eventNames">eventNames</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#listenerCount" data-id="/classes/CacheEntry.html#listenerCount">listenerCount</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#listeners" data-id="/classes/CacheEntry.html#listeners">listeners</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#off" data-id="/classes/CacheEntry.html#off">off</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#on" data-id="/classes/CacheEntry.html#on">on</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#onCompleteAsync" data-id="/classes/CacheEntry.html#onCompleteAsync">onCompleteAsync</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#onTaskErrorAsync" data-id="/classes/CacheEntry.html#onTaskErrorAsync">onTaskErrorAsync</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#onUpdate" data-id="/classes/CacheEntry.html#onUpdate">onUpdate</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#onUpdateProgress" data-id="/classes/CacheEntry.html#onUpdateProgress">onUpdateProgress</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#once" data-id="/classes/CacheEntry.html#once">once</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#pauseAsync" data-id="/classes/CacheEntry.html#pauseAsync">pauseAsync</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#removeAllListeners" data-id="/classes/CacheEntry.html#removeAllListeners">removeAllListeners</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#removeListener" data-id="/classes/CacheEntry.html#removeListener">removeListener</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#resetAsync" data-id="/classes/CacheEntry.html#resetAsync">resetAsync</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#resetTaskAsync" data-id="/classes/CacheEntry.html#resetTaskAsync">resetTaskAsync</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheEntry.html#resumeAsync" data-id="/classes/CacheEntry.html#resumeAsync">resumeAsync</a></li></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="CacheManager.html" data-id="/classes/CacheManager.html">CacheManager.class.ts</a>
+<ul>
+<li class="tsd-kind-constructor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#constructor" data-id="/classes/CacheManager.html#constructor">constructor</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#_entries" data-id="/classes/CacheManager.html#_entries">_entries</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#_entryExpiresIn" data-id="/classes/CacheManager.html#_entryExpiresIn">_entryExpiresIn</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#_folder" data-id="/classes/CacheManager.html#_folder">_folder</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#_ready" data-id="/classes/CacheManager.html#_ready">_ready</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#_tmpFolder" data-id="/classes/CacheManager.html#_tmpFolder">_tmpFolder</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#folder" data-id="/classes/CacheManager.html#folder">folder</a></li>
+<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#prefixed" data-id="/classes/CacheManager.html#prefixed">prefixed</a></li>
+<li class="tsd-kind-accessor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#entries" data-id="/classes/CacheManager.html#entries">entries</a></li>
+<li class="tsd-kind-accessor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#entryExpiresIn" data-id="/classes/CacheManager.html#entryExpiresIn">entryExpiresIn</a></li>
+<li class="tsd-kind-accessor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#ready" data-id="/classes/CacheManager.html#ready">ready</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#addListener" data-id="/classes/CacheManager.html#addListener">addListener</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#emit" data-id="/classes/CacheManager.html#emit">emit</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#eventNames" data-id="/classes/CacheManager.html#eventNames">eventNames</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#getCacheSizeAsync" data-id="/classes/CacheManager.html#getCacheSizeAsync">getCacheSizeAsync</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#getEntry" data-id="/classes/CacheManager.html#getEntry">getEntry</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#initAsync" data-id="/classes/CacheManager.html#initAsync">initAsync</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#listenerCount" data-id="/classes/CacheManager.html#listenerCount">listenerCount</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#listeners" data-id="/classes/CacheManager.html#listeners">listeners</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#off" data-id="/classes/CacheManager.html#off">off</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#on" data-id="/classes/CacheManager.html#on">on</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#once" data-id="/classes/CacheManager.html#once">once</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#removeAllListeners" data-id="/classes/CacheManager.html#removeAllListeners">removeAllListeners</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#removeListener" data-id="/classes/CacheManager.html#removeListener">removeListener</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="CacheManager.html#resetAsync" data-id="/classes/CacheManager.html#resetAsync">resetAsync</a></li></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="Utils.html" data-id="/classes/Utils.html">Utils.class.ts</a>
+<ul>
+<li class="tsd-kind-constructor tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="Utils.html#constructor" data-id="/classes/Utils.html#constructor">constructor</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="Utils.html#getUTCDate" data-id="/classes/Utils.html#getUTCDate">getUTCDate</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="Utils.html#getUriExtension" data-id="/classes/Utils.html#getUriExtension">getUriExtension</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="Utils.html#getUriFilename" data-id="/classes/Utils.html#getUriFilename">getUriFilename</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="Utils.html#getUriPath" data-id="/classes/Utils.html#getUriPath">getUriPath</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="Utils.html#hex2str" data-id="/classes/Utils.html#hex2str">hex2str</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="Utils.html#path2uri" data-id="/classes/Utils.html#path2uri">path2uri</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="Utils.html#progress2value" data-id="/classes/Utils.html#progress2value">progress2value</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="Utils.html#str2hex" data-id="/classes/Utils.html#str2hex">str2hex</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a class="category__link tsd-kind-icon js-category-link" href="Utils.html#uri2path" data-id="/classes/Utils.html#uri2path">uri2path</a></li></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../types/CacheEntryDownloadOptions.html" data-id="/types/CacheEntryDownloadOptions.html">CacheEntry.class.ts</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../types/CacheEntryOptions.html" data-id="/types/CacheEntryOptions.html">CacheEntry.class.ts</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../types/CacheEntryUpdateEvent.html" data-id="/types/CacheEntryUpdateEvent.html">CacheEntry.class.ts</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../types/CacheManagerOptions.html" data-id="/types/CacheManagerOptions.html">CacheManager.class.ts</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../types/CacheManagerProviderProps.html" data-id="/types/CacheManagerProviderProps.html">provider.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../types/CachingImageProps.html" data-id="/types/CachingImageProps.html">CachingImage.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../types/CachingImageRef.html" data-id="/types/CachingImageRef.html">CachingImage.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../types/ProgressIndicatorProps.html" data-id="/types/ProgressIndicatorProps.html">ProgressIndicator.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../variables/CacheManagerContext.html" data-id="/variables/CacheManagerContext.html">provider.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../variables/defaultCacheImageProgressProps.html" data-id="/variables/defaultCacheImageProgressProps.html">CachingImage.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../variables/defaultCacheManagerOptions.html" data-id="/variables/defaultCacheManagerOptions.html">CacheManager.class.ts</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../functions/CacheManagerProvider.html" data-id="/functions/CacheManagerProvider.html">provider.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../functions/CachingImage.html" data-id="/functions/CachingImage.html">CachingImage.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../functions/DownloadIcon.html" data-id="/functions/DownloadIcon.html">icons.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../functions/PauseIcon.html" data-id="/functions/PauseIcon.html">icons.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../functions/PlayIcon.html" data-id="/functions/PlayIcon.html">icons.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../functions/ProgressIcon.html" data-id="/functions/ProgressIcon.html">CachingImage.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../functions/ProgressIndicator.html" data-id="/functions/ProgressIndicator.html">ProgressIndicator.tsx</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../functions/useCache.html" data-id="/functions/useCache.html">hooks.ts</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../functions/useCacheFile.html" data-id="/functions/useCacheFile.html">hooks.ts</a>
+<ul></ul></li>
+<li><a class="category__link js-category-link category__link--ts" href="../functions/useCacheManager.html" data-id="/functions/useCacheManager.html">hooks.ts</a>
+<ul></ul></li></ul></li></ul></div></div></div></div>
+<div class="container tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div><script src="../assets/main.js"></script><script src="../assets/custom.js"></script></body></html>

@@ -61,6 +61,7 @@ export class CacheManager extends EventEmitter<'ready' | 'reset'> {
 
           const expiresIn = new Date(0)
           if (this._entryExpiresIn > -1) {
+            // @ts-ignore
             const { modificationTime = new Date().getTime() / 1e3, size } =
               await getInfoAsync(localFileUri)
 

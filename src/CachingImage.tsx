@@ -11,8 +11,7 @@ import {
   StyleSheet,
   Pressable,
   ImageStyle,
-  ColorValue,
-  ImageResizeMode
+  ColorValue
 } from 'react-native'
 import { CacheEntryDownloadOptions, CacheEntryStatus } from './CacheEntry.class'
 import { useCacheFile } from './hooks'
@@ -39,10 +38,8 @@ export type CachingImageProps = {
   downloadProps?: CacheEntryDownloadOptions
   // expo-image props
   style?: ImageStyle
-  resizeMode?: ImageResizeMode
   contentFit?: ImageContentFit
-  placehoder?: ImageSource | string | number | ImageSource[] | string[] | null
-  placeholderContentFit?: ImageContentFit
+  placeholder?: ImageSource | string | number | ImageSource[] | string[] | null
   contentPosition?: ImageContentPosition
   transition?: ImageTransition | number | null
   blurRadius?: number
@@ -178,6 +175,30 @@ export const CachingImage = forwardRef<
       }
     }, [ready, automatic, status])
 
+    const renderIndicator = () => {
+      if (!indicator || (status === CacheEntryStatus.Pending && !automatic)) {
+        return (
+          <ProgressIcon
+            status={status}
+            disabledActions={disabledActions}
+            color={progressMergedProps.color}
+            size={progressMergedProps.size * 0.5}
+          />
+        )
+      }
+
+      return (
+        <ProgressIndicator progress={progress} {...progressMergedProps}>
+          <ProgressIcon
+            status={status}
+            disabledActions={disabledActions}
+            color={progressMergedProps.color}
+            size={progressMergedProps.size * 0.5}
+          />
+        </ProgressIndicator>
+      )
+    }
+
     if (path && progress === 100) {
       return (
         <Image
@@ -202,25 +223,12 @@ export const CachingImage = forwardRef<
         {progress < 100 && (
           <Pressable
             onPress={processingHandler}
-            style={StyleSheet.absoluteFillObject}
+            style={[
+              StyleSheet.absoluteFillObject,
+              { justifyContent: 'center', alignItems: 'center' }
+            ]}
           >
-            {indicator ? (
-              <ProgressIndicator progress={progress} {...progressMergedProps}>
-                <ProgressIcon
-                  status={status}
-                  disabledActions={disabledActions}
-                  color={progressMergedProps.color}
-                  size={progressMergedProps.size * 0.5}
-                />
-              </ProgressIndicator>
-            ) : (
-              <ProgressIcon
-                status={status}
-                disabledActions={disabledActions}
-                color={progressMergedProps.color}
-                size={progressMergedProps.size * 0.5}
-              />
-            )}
+            {renderIndicator()}
           </Pressable>
         )}
       </View>

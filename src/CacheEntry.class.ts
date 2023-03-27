@@ -152,13 +152,15 @@ export class CacheEntry extends EventEmitter<'update'> {
 
   public downloadAsync(options?: CacheEntryDownloadOptions) {
     return new Promise<string>(async (resolve, reject) => {
+      if (this._task) {
+        return reject(new Error('Task is defined'))
+      }
+
+      if (this._status !== CacheEntryStatus.Pending) {
+        return reject(new Error('Task could not be started'))
+      }
+
       try {
-        if (this._task) throw new Error('Task is defined')
-
-        if (this._status !== CacheEntryStatus.Pending) {
-          throw new Error('Task could not be started')
-        }
-
         this._task = createDownloadResumable(
           this.uri,
           this._tmpPath,
@@ -176,8 +178,7 @@ export class CacheEntry extends EventEmitter<'update'> {
 
         const res = await this._task.downloadAsync()
         if (!res) {
-          return
-          // throw new Error('File upload not complete')
+          throw new Error('File upload not complete')
         }
 
         const { status } = res
@@ -196,19 +197,21 @@ export class CacheEntry extends EventEmitter<'update'> {
 
   public resumeAsync() {
     return new Promise<string>(async (resolve, reject) => {
-      try {
-        if (!this._task) throw new Error('Task is not defined (resume)')
-        if (this._status !== CacheEntryStatus.Pause) {
-          throw new Error('Task is not paused')
-        }
+      if (!this._task) {
+        return reject(new Error('Task is defined (resume)'))
+      }
 
+      if (this._status !== CacheEntryStatus.Pause) {
+        return reject(new Error('Task is not paused'))
+      }
+
+      try {
         this._status = CacheEntryStatus.Progress
         this.onUpdate()
 
         const res = await this._task.resumeAsync()
         if (!res) {
-          return
-          // throw new Error('File upload not complete')
+          throw new Error('File upload not complete')
         }
 
         const { status } = res
@@ -227,12 +230,14 @@ export class CacheEntry extends EventEmitter<'update'> {
 
   public pauseAsync() {
     return new Promise<DownloadPauseState>(async (resolve, reject) => {
-      try {
-        if (!this._task) throw new Error('Task is not defined (pause)')
-        if (this._status !== CacheEntryStatus.Progress) {
-          throw new Error('Task is not processing')
-        }
+      if (!this._task) {
+        return reject(new Error('Task is not defined (pause)'))
+      }
+      if (this._status !== CacheEntryStatus.Progress) {
+        return reject(new Error('Task is not processing'))
+      }
 
+      try {
         const res = await this._task.pauseAsync()
 
         this._status = CacheEntryStatus.Pause
@@ -247,16 +252,18 @@ export class CacheEntry extends EventEmitter<'update'> {
 
   public cancelAsync() {
     return new Promise<void>(async (resolve, reject) => {
-      try {
-        if (!this._task) throw new Error('Task is not defined (cancel)')
-        if (
-          ![CacheEntryStatus.Progress, CacheEntryStatus.Pause].includes(
-            this._status
-          )
-        ) {
-          throw new Error('Task could not be canceled')
-        }
+      if (!this._task) {
+        return reject(new Error('Task is not defined (cancel)'))
+      }
+      if (
+        ![CacheEntryStatus.Progress, CacheEntryStatus.Pause].includes(
+          this._status
+        )
+      ) {
+        return reject(new Error('Task could not be canceled'))
+      }
 
+      try {
         await this._task.cancelAsync()
         await this.resetTaskAsync(true)
 
@@ -272,11 +279,11 @@ export class CacheEntry extends EventEmitter<'update'> {
 
   public resetAsync() {
     return new Promise<void>(async (resolve, reject) => {
-      try {
-        if (this._status !== CacheEntryStatus.Complete) {
-          throw new Error('File not loaded')
-        }
+      if (this._status !== CacheEntryStatus.Complete) {
+        return reject(new Error('File not loaded'))
+      }
 
+      try {
         await deleteAsync(this._path)
         this._progress = 0
         this._status = CacheEntryStatus.Pending

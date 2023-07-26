@@ -143,35 +143,42 @@ export const CachingImage = forwardRef<
       resumeAsync
     } = entry
 
-    const processingHandler = useCallback(() => {
-      switch (status) {
-        case CacheEntryStatus.Pending: {
-          if (!disabledActions.includes(CachingImageButtons.Download))
-            downloadAsync(downloadProps)
-          break
+    const processingHandler = useCallback(
+      (force: boolean = false) => {
+        switch (status) {
+          case CacheEntryStatus.Pending: {
+            if (
+              force ||
+              !disabledActions.includes(CachingImageButtons.Download)
+            )
+              downloadAsync(downloadProps)
+            break
+          }
+          case CacheEntryStatus.Progress: {
+            if (force || !disabledActions.includes(CachingImageButtons.Pause))
+              pauseAsync()
+            break
+          }
+          case CacheEntryStatus.Pause: {
+            if (force || !disabledActions.includes(CachingImageButtons.Resume))
+              resumeAsync()
+            break
+          }
         }
-        case CacheEntryStatus.Progress: {
-          if (!disabledActions.includes(CachingImageButtons.Pause)) pauseAsync()
-          break
-        }
-        case CacheEntryStatus.Pause: {
-          if (!disabledActions.includes(CachingImageButtons.Resume))
-            resumeAsync()
-          break
-        }
-      }
-    }, [
-      status,
-      downloadAsync,
-      pauseAsync,
-      resumeAsync,
-      disabledActions,
-      downloadProps
-    ])
+      },
+      [
+        status,
+        downloadAsync,
+        pauseAsync,
+        resumeAsync,
+        disabledActions,
+        downloadProps
+      ]
+    )
 
     useEffect(() => {
       if (ready && automatic && status === CacheEntryStatus.Pending) {
-        processingHandler()
+        processingHandler(true)
       }
     }, [ready, automatic, status])
 
@@ -222,7 +229,7 @@ export const CachingImage = forwardRef<
         />
         {progress < 100 && (
           <Pressable
-            onPress={processingHandler}
+            onPress={() => processingHandler()}
             style={[
               StyleSheet.absoluteFillObject,
               { justifyContent: 'center', alignItems: 'center' }
